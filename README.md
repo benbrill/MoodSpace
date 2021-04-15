@@ -2,7 +2,7 @@
 ```
 X . .
 . . .
-. . .
+. . O
 ```
 
 # Project Proposal
