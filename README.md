@@ -2,7 +2,7 @@
 ```
 X . .
 . X .
-. O O
+. . O
 ```
 
 # Project Proposal
@@ -15,7 +15,7 @@ We want to create a website that looks at scenes of a movie or play and creates 
 
 ## Planned Deliverables
 
-Concisely what you are going to create and what capabilities it will have. Are you making a webapp? A Python package for others to use? Code that creates a novel data set? Etc. Please consider two scenarios:
+We plan to make a fully functional website that allows the user to login to their Spotify and also choose a movie/scene of their choice to match with their song preferences. Our model will then generate a single song
 
 “Full success.” What will your deliverable be if everything works out for you exactly as you plan?
 
@@ -23,7 +23,21 @@ Concisely what you are going to create and what capabilities it will have. Are y
 
 ## Resources Required
 
-Access to Spotify API
+We will need access to Spotify API through a Spotify developer account (using spotipy), access to movie scripts, establish a connection to a web server (for our purposes, we will be using Heroku), and access song lyrics through Genius Lyrics.
+
+This github repository will allow us to parse scripts provided at these script sources:
+
+-IMSDb
+-Dailyscript
+-Awesomefilm
+-Weeklyscript
+-Scriptsavanat
+-Screenplays online
+-Scripts for you
+
+The script for parsing the movie scripts come from this paper: Linguistic analysis of differences in portrayal of movie characters, in: Proceedings of Association for Computational Linguistics, Vancouver, Canada, 2017 and the code can be found here:
+
+[Script Parser](https://github.com/usc-sail/mica-text-script-parser)
 
 Access to movie scripts through IMDBs API
 
