@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to ToonTown! {% endblock %}</h1>
+    {% if track is not none %}  
+        <a href="#">
+            <p>{{ track['item']['name'] }}</p>
+        </a>
+        <a href="#">
+            <img src="{{ track['item']['album']['images'][0]['url'] }}">
+        </a>
+        {% if lyrics is not none %}  
+        <p>
+            {{ lyrics }}
+        </p>
+        {% endif %}
+        <hr>
+    {% endif %}
+{% endblock %}
