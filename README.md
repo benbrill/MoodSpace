@@ -2,7 +2,7 @@
 ```
 X . .
 . X .
-. O O
+. . O
 ```
 
 # Project Proposal
@@ -11,11 +11,11 @@ X . .
 
 Often times, people don't like the soundtrack selections in movies. Well we have a solution for that! We want to create a website that looks at scenes of a movie or play and creates a customized soundtrack for that scene based on your own Spotify music tastes.
 
-Intitally, we will offer a select few famous scenes from movies that we conduct sentiment analysis on. From there we will cross reference our results to a user's own music preferences on their Spotify account to generate a unique song for the scence customized to the users preferences. 
+Intitally, we will offer a select few famous scenes from movies that we conduct sentiment analysis on. From there we will cross reference our results to a user's own music preferences on their Spotify account to generate a unique song for the scence customized to the users preferences.
 
 ## Planned Deliverables
 
-For a "fully successful" project, we would like to have a nice looking web app that a user can easily interface with, with a place for a user to log-in to their Spotify account, select a scene for matching, and outputs a song corresponding to the mood of the scene and the user's music taste. 
+For a "fully successful" project, we would like to have a nice looking web app that a user can easily interface with, with a place for a user to log-in to their Spotify account, select a scene for matching, and outputs a song corresponding to the mood of the scene and the user's music taste.
 
 As "reach" goals, we would like to add additional scenes for the user to choose from or provide a space for a user to input their own scene from a movie for sentiment analysis and song matching. In addition, some sort of mechanism to overlay the user's song choice over the movie scene of their choosing (probably one of our predefined scenes) so they can see their custom soundtrack in action.
 
@@ -25,10 +25,32 @@ It is also important to note that our sentiment analysis might not provide fruit
 
 ## Resources Required
 
-- Access to Spotify API
-- Access to movie scripts through IMDBs API
+We will need access to Spotify API through a Spotify developer account, access to movie scripts, establish a connection to a web server (for our purposes, we will be using Heroku), and access song lyrics through Genius Lyrics (Access to Genius API for song lyrics).
 
-Access to Genius API (for song)
+The packages we will need are:
+
+- flask_oauthlib (to authenticate user account)
+- gunicorn (web server)
+- spotipy (our main connection to the Spotify API)
+- Flask (the web app)
+- Flask-Session
+- beautifulsoup4 (for parsing lyrics)
+- python-dotenv~=0.15.0
+
+This github repository will allow us to parse scripts provided at these script sources:
+
+- IMSDb
+- Dailyscript
+- Awesomefilm
+- Weeklyscript
+- Scriptsavanat
+- Screenplays online
+- Scripts for you
+
+The script for parsing the movie scripts come from this paper: Linguistic analysis of differences in portrayal of movie characters, in: Proceedings of Association for Computational Linguistics, Vancouver, Canada, 2017 and the code can be found here:
+
+[Script Parser](https://github.com/usc-sail/mica-text-script-parser)
+
 
 ## Tools/Skills Required
 
@@ -60,7 +82,7 @@ Will your facial recognition system work well well on all faces, or will it syst
 
 Week 2: Data acquisition and prepping pipeline
 
-Week 4: Data analysis: Spotify Sentiment Analysis, Movie Script Sentiment Analysis. Work within a local Jupyter notebook as a proof-of-concept/exploratory data analysis. See how effective a model can be for our idea, and evaluate 
+Week 4: Data analysis: Spotify Sentiment Analysis, Movie Script Sentiment Analysis. Work within a local Jupyter notebook as a proof-of-concept/exploratory data analysis. See how effective a model can be for our idea, and evaluate
 
 Week 6: Full pipeline set up, implement as Python library/package to be used in the backend of our app
 
