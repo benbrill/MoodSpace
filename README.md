@@ -9,9 +9,9 @@ X . .
 
 ## Abstract
 
-In 2-4 sentences, describe what problem the project addresses, and the overall approach you will use to solve that problem.
+Often times, people don't like the soundtrack selections in movies. Well we have a solution for that! We want to create a website that looks at scenes of a movie or play and creates a customized soundtrack for that scene based on your own Spotify music tastes.
 
-We want to create a website that looks at scenes of a movie or play and creates a customized soundtrack for that scene based on your own Spotify music tastes.
+Intitally, we will offer a select few famous scenes from movies that we conduct sentiment analysis on. From there we will cross reference our results to a user's own music preferences on their Spotify account to generate a unique song for the scence customized to the users preferences. 
 
 ## Planned Deliverables
 
@@ -23,9 +23,8 @@ Concisely what you are going to create and what capabilities it will have. Are y
 
 ## Resources Required
 
-Access to Spotify API
-
-Access to movie scripts through IMDBs API
+- Access to Spotify API
+- Access to movie scripts through IMDBs API
 
 ## Tools/Skills Required
 
