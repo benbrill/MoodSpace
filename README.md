@@ -42,7 +42,9 @@ What are two things that could potentially stop you from achieving the full deli
 
 With any machine learning pipeline, there's always the risk that whatever model we try to implement will just end up not being very effective at trying to predict what we want. In particular, we need to make sure that we have the flexibility to re-evaluate after our exploratory data analysis where we attempt to analyze sentiment of movie scripts and put that together with the Spotify songs.
 
-We 
+From our initial exploration of the movie scripts sites, we're worried about how disorganized they seem. Especially regarding scripts that only exists on these sites as PDFs, which will almost definitely be harder to parse than the other popular format, HTML. 
+
+Speaking of movie scripts, we also have to make sure we're careful about excluding words like speaker cues and stage directions that might interfere with our sentiment analysis. On the other hand though, there are many elements of movies that define the overall "mood" of a scene that aren't captured well at all by a simply script, so we'll have to make sure that our machine learning model won't make too many false readings of the mood.
 
 ## Ethics
 
@@ -60,6 +62,6 @@ Week 2: Data acquisition and prepping pipeline
 
 Week 4: Data analysis: Spotify Sentiment Analysis, Movie Script Sentiment Analysis. Work within a local Jupyter notebook as a proof-of-concept/exploratory data analysis. See how effective a model can be for our idea, and evaluate 
 
-Week 6: Full pipeline set up
+Week 6: Full pipeline set up, implement as Python library/package to be used in the backend of our app
 
 Week 8: How to mesh the results from the machine learning pipeline with user input in the frontend?
