@@ -1,8 +1,8 @@
 # PIC16B-Project
 ```
 X . .
-. O .
-. . O
+. X .
+. O O
 ```
 
 # Project Proposal
