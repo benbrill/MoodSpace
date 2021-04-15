@@ -29,23 +29,23 @@ We will need access to Spotify API through a Spotify developer account, access t
 
 The packages we will need are:
 
--flask_oauthlib (to authenticate user account)
--gunicorn (web server)
--spotipy (our main connection to the Spotify API)
--Flask (the web app)
--Flask-Session
--beautifulsoup4 (for parsing lyrics)
--python-dotenv~=0.15.0
+- flask_oauthlib (to authenticate user account)
+- gunicorn (web server)
+- spotipy (our main connection to the Spotify API)
+- Flask (the web app)
+- Flask-Session
+- beautifulsoup4 (for parsing lyrics)
+- python-dotenv~=0.15.0
 
 This github repository will allow us to parse scripts provided at these script sources:
 
--IMSDb
--Dailyscript
--Awesomefilm
--Weeklyscript
--Scriptsavanat
--Screenplays online
--Scripts for you
+- IMSDb
+- Dailyscript
+- Awesomefilm
+- Weeklyscript
+- Scriptsavanat
+- Screenplays online
+- Scripts for you
 
 The script for parsing the movie scripts come from this paper: Linguistic analysis of differences in portrayal of movie characters, in: Proceedings of Association for Computational Linguistics, Vancouver, Canada, 2017 and the code can be found here:
 
