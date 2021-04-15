@@ -25,7 +25,17 @@ It is also important to note that our sentiment analysis might not provide fruit
 
 ## Resources Required
 
-We will need access to Spotify API through a Spotify developer account (using spotipy), access to movie scripts, establish a connection to a web server (for our purposes, we will be using Heroku), and access song lyrics through Genius Lyrics.
+We will need access to Spotify API through a Spotify developer account, access to movie scripts, establish a connection to a web server (for our purposes, we will be using Heroku), and access song lyrics through Genius Lyrics (Access to Genius API for song lyrics).
+
+The packages we will need are:
+
+-flask_oauthlib (to authenticate user account)
+-gunicorn (web server)
+-spotipy (our main connection to the Spotify API)
+-Flask (the web app)
+-Flask-Session
+-beautifulsoup4 (for parsing lyrics)
+-python-dotenv~=0.15.0
 
 This github repository will allow us to parse scripts provided at these script sources:
 
@@ -41,7 +51,6 @@ The script for parsing the movie scripts come from this paper: Linguistic analys
 
 [Script Parser](https://github.com/usc-sail/mica-text-script-parser)
 
-Access to Genius API (for song)
 
 ## Tools/Skills Required
 
