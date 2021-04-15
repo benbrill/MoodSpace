@@ -1,6 +1,6 @@
 # PIC16B-Project
 ```
-. . .
+X . .
 . . .
 . . .
 ```
@@ -56,4 +56,3 @@ Week 2: Data acquisition and prepping pipeline
 Week 4: Data analysis: Spotify Sentiment Analysis, Movie Script Sentiment Analysis
 
 Week 6: Full pipeline set up
-
