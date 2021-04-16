@@ -68,14 +68,6 @@ Speaking of movie scripts, we also have to make sure we're careful about excludi
 
 ## Ethics
 
-All projects we undertake involve decisions about whose interests matter; which problems are important; and which tradeoffs are considered acceptable. Take some time to reflect on the potential impacts of your product on its users and the broader world. If you can see potential biases or harms from your work, describe some of the ways in which you will work to mitigate them. Remember that even relatively simple ideas can have unexpected and impactful biases. Here's a nice introductory video for thinking about these questions, and here's one that goes into somewhat more detail. Here are some relevant examples:
-
-Will your recipe recommender app privilege the cuisines of some cultures above others? For example, peanut butter and tomato might seem an odd combination in the context of European cuisine, but is common in many traditional dishes of the African diaspora. A similar set of questions applies to recommendation systems related to style or beauty.
-
-What data set will your sentiment analysis be trained on? What languages will be included? Will diverse dialects be included, or only the "standard" version of the target language? Who would be excluded by such a choice, and how will you communicate about your limitations?
-
-Will your facial recognition system work well well on all faces, or will it systematically underperform on certain marginalized subgroups? (see the videos above for examples of this.)
-
 Though this project may seem innocent on the surface (what could go wrong with matching songs to famous movie scences?), there are several ethical challenges we may encounter and seek to overcome. 
 
 We will have to utilize natural language processing in order to parse through noteable movie scences and obtain a general sentiment on that scene. We will likely train this sentiment analysis on English at first, particularly a western diallect common in many Hollywood produced films. However, doing this would ommit films primarily shot in a language other than English, for instance, Bollywood films which rely heavily on their musical scores and soundtracks. The intention behind this is not to willingly ommit foriegn film scences fro our project, but to first train our model on a language we are most familiar with -- English -- to first see that it actually works and then hopefully apply our methods to work on films in other languages.
