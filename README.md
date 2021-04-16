@@ -1,11 +1,9 @@
-# PIC16B-Project
+# PIC16B-Project Proposal
 ```
 X . .
 . X .
 . . O
 ```
-
-# Project Proposal
 
 ## Abstract
 
@@ -75,6 +73,12 @@ Will your recipe recommender app privilege the cuisines of some cultures above o
 What data set will your sentiment analysis be trained on? What languages will be included? Will diverse dialects be included, or only the "standard" version of the target language? Who would be excluded by such a choice, and how will you communicate about your limitations?
 
 Will your facial recognition system work well well on all faces, or will it systematically underperform on certain marginalized subgroups? (see the videos above for examples of this.)
+
+Though this project may seem innocent on the surface (what could go wrong with matching songs to famous movie scences?), there are several ethical challenges we may encounter and seek to overcome. 
+
+We will have to utilize natural language processing in order to parse through noteable movie scences and obtain a general sentiment on that scene. We will likely train this sentiment analysis on English at first, particularly a western diallect common in many Hollywood produced films. However, doing this would ommit films primarily shot in a language other than English, for instance, Bollywood films which rely heavily on their musical scores and soundtracks. The intention behind this is not to willingly ommit foriegn film scences fro our project, but to first train our model on a language we are most familiar with -- English -- to first see that it actually works and then hopefully apply our methods to work on films in other languages.
+
+Our project will initially only be of use to users who have a Spotify account. Though Spotify offers both a premium and free version of their music library, we acknowledge that not all users may have the resources to have access to make a Spotify account and thus would not be able to use our project. In addition, we also realize that users who pay for a premium Spotify account might get more intuitive and useful results than those that do not, as these users are likely to use the streaming service more often and to build a larger pile of data on the API from which we can access. In order to solve these problems in the future, we hope to add more music services and perhaps a method to input your playlists or music tastes for our a project to work on. 
 
 ## Tentative Timeline
 
