@@ -2,7 +2,7 @@
 ```
 X . .
 . X .
-. . O
+. O O
 ```
 
 ## Abstract
