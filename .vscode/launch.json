@@ -4,11 +4,12 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
-            "name": "Python: Current File",
+            "name": "Python: Fetch Scripts",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "mica-text-script-parser/a_01_fetch_extract_and_parse.py",
             "console": "integratedTerminal"
         },
         {
@@ -27,10 +28,7 @@
                 "FLASK_APP": "app.py",
                 "FLASK_ENV": "development"
             },
-            "args": [
-                "run",
-                "--no-debugger"
-            ],
+            "args" : ["run", "--port", "8080"],
             "jinja": true
         }
     ]

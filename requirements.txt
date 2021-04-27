@@ -6,3 +6,9 @@ Flask
 Flask-Session
 beautifulsoup4
 python-dotenv~=0.15.0
+
+lxml
+
+seaborn
+keras
+sklearn

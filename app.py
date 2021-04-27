@@ -4,6 +4,8 @@ from flask_session import Session
 import spotipy
 import uuid
 
+import Keras_Classification
+
 from dotenv import load_dotenv
 
 import get_lyrics
@@ -84,10 +86,11 @@ def currently_playing():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     track = spotify.current_user_playing_track()
     if not track is None:
+        classification = Keras_Classification.predict_mood(track['item']['id'])
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
         lyrics = get_lyrics.main(song_title, artist_name)
-        return render_template("index.html", track=track, lyrics=lyrics)
+        return render_template("index.html", track=track, lyrics=lyrics, classification=classification)
     return "No track currently playing."
 
 
