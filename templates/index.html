@@ -15,5 +15,10 @@
         </p>
         {% endif %}
         <hr>
+        {% if classification is not none %}  
+        <p>
+            {{ classification }}
+        </p>
+        {% endif %}
     {% endif %}
 {% endblock %}

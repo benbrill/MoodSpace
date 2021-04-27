@@ -2,6 +2,6 @@
 /.spotify_caches
 /venv
 .env
-/env
 /__pycache__
-/.vscodesource env/bin/activate
+
+/Data
