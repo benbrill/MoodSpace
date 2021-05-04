@@ -35,7 +35,10 @@ def scrap_song_url(url):
     page = requests.get(url)
     html = BeautifulSoup(page.text, 'html.parser')
     [h.extract() for h in html('script')]
-    lyrics = html.find('div', class_='lyrics').get_text()
+    try:
+        lyrics = html.find('div', class_='lyrics').get_text()
+    except AttributeError: # easy workaround for error when html parser is None. Might need fixing
+        return None
 
     return lyrics
 
@@ -58,7 +61,7 @@ def main(song_title, artist_name):
         song_url = remote_song_info['result']['url']
         lyrics = scrap_song_url(song_url)
 
-        print(lyrics)
+        # print(lyrics)
         return lyrics
     else:
         print(defaults['message']['search_fail'])
