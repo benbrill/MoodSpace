@@ -1,17 +1,15 @@
 import numpy as np 
 import pandas as pd 
-import matplotlib.pyplot as plt
-import seaborn as sns
 import spotipy
+
+import joblib
+
+
 #Libraries to create the multiclass model
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils import np_utils
-#Import tensorflow and disable the v2 behavior and eager mode
-import tensorflow as tf
-tf.compat.v1.disable_eager_execution()
-tf.compat.v1.disable_v2_behavior()
 
 #Library to validate the model
 from sklearn.model_selection import cross_val_score, KFold, train_test_split
@@ -110,53 +108,12 @@ def base_model():
 
 
 
-
-#Configure the model
-estimator = KerasClassifier(build_fn=base_model,epochs=300,batch_size=200,verbose=0)
-
-
-
-
-
-#Evaluate the model using KFold cross validation
-kfold = KFold(n_splits=10,shuffle=True)
-results = cross_val_score(estimator,X,encoded_y,cv=kfold)
-print("Baseline: %.2f%% (%.2f%%)" % (results.mean()*100,results.std()*100))
-
-
-
-
-
-estimator.fit(X_train,Y_train)
-y_preds = estimator.predict(X_test)
-
-
-
-
-
-
-cm = confusion_matrix(Y_test,y_preds)
-ax = plt.subplot()
-sns.heatmap(cm,annot=True,ax=ax)
-
-labels = target['mood']
-ax.set_xlabel('Predicted labels')
-ax.set_ylabel('True labels')
-ax.set_title('Confusion Matrix')
-ax.xaxis.set_ticklabels(labels)
-ax.yaxis.set_ticklabels(labels)
-# plt.show()
-
-print("Accuracy Score",accuracy_score(Y_test,y_preds))
-
-
-
-
-
 def predict_mood(id_song):
     #Join the model and the scaler in a Pipeline
     pip = Pipeline([('minmaxscaler',MinMaxScaler()),('keras',KerasClassifier(build_fn=base_model,epochs=300,
                                                                              batch_size=200,verbose=0))])
+    # pip = joblib.load('sklearn_pipeline.pkl')
+    # pip.named_steps['keras'].model = load_model('keras_model.h5')
     #Fit the Pipeline
     pip.fit(X2,encoded_y)
 
