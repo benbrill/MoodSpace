@@ -50,12 +50,6 @@ def index():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     return render_template("base.html")
     
-    # f'<h2 class="Header_Name">Hi {spotify.me()["display_name"]}, ' \
-    #        f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
-    #        f'<a href="/playlists">my playlists</a> | ' \
-    #        f'<a href="/currently_playing">currently playing</a> | ' \
-    #        f'<a href="/current_user">me</a>' \
-
 
 @app.route('/sign_out')
 def sign_out():
@@ -93,7 +87,7 @@ def currently_playing():
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
         lyrics = get_lyrics.main(song_title, artist_name)
-        return render_template("index.html", track=track, lyrics=lyrics, classification=classification)
+        return render_template("CurrentlyPlaying.html", track=track, lyrics=lyrics, classification=classification)
     return "No track currently playing."
 
 
