@@ -7,6 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!--style.css-->
+    <link rel="stylesheet" type="text/css" href = "{{url_for('static', filename='css/style.css')}}">
 
     <title>{% block title %} {% endblock %}</title>
   </head>
@@ -24,6 +27,11 @@
             </ul>
         </div>
     </nav>
+    <!-- <h2 class="Header_Name">Hi {% spotify.me()["display_name"] %}</h2>
+    <small><a href="/sign_out">[sign out]</a></small>
+    <a href="/playlists">my playlists</a> 
+    <a href="/currently_playing">currently playing</a>
+    <a href="/current_user">me</a> -->
     <div class="container">
         {% block content %} {% endblock %}
     </div>

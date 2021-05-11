@@ -1,6 +1,22 @@
 h1 {
     border: 2px #eee solid;
-    color: brown;
     text-align: center;
     padding: 10px;
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 46px;
+    color:black;
+}
+
+.Header_Name{
+
+    font-family: Circular Std;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 46px;
+
+    color: #FFFFFF;
 }
