@@ -88,7 +88,8 @@ def currently_playing():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     track = spotify.current_user_playing_track()
     if not track is None:
-        classification = Keras_Classification.predict_mood(track['item']['id'])
+        # classification = Keras_Classification.predict_mood(track['item']['id'])
+        classification = None
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
         lyrics = get_lyrics.main(song_title, artist_name)
