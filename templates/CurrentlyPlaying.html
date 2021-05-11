@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to MusicSpace! {% endblock %}</h1>
+    <h1 class="header">{% block title %} Welcome to MoodSpace! {% endblock %}</h1>
     {% if track is not none %}  
         <a href="#">
             <p>{{ track['item']['name'] }}</p>
         </a>
         <a href="#">
-            <img src="{{ track['item']['album']['images'][0]['url'] }}">
+            <img src="{{ track['item']['album']['images'][0]['url'] }}" width="300" height = "300" >
         </a>
         {% if lyrics is not none %}  
         <p>

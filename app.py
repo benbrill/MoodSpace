@@ -48,7 +48,8 @@ def index():
 
     # Step 4. Signed in, display data
     spotify = spotipy.Spotify(auth_manager=auth_manager)
-    return render_template("base.html")
+    display_name = spotify.me()["display_name"]
+    return render_template("Home.html", display_name=display_name)
     
 
 @app.route('/sign_out')

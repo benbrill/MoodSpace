@@ -1,8 +1,7 @@
-h1 {
-    border: 2px #eee solid;
-    text-align: center;
+.container {
+    text-align: left;
     padding: 10px;
-    font-family: Circular Std;
+    font-family: "Circular Std", Arial;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -10,13 +9,11 @@ h1 {
     color:black;
 }
 
-.Header_Name{
 
-    font-family: Circular Std;
+a {
+    font-family: "Circular Std", Arial;
     font-style: normal;
     font-weight: bold;
-    font-size: 36px;
-    line-height: 46px;
+    text-decoration: none !important;
 
-    color: #FFFFFF;
 }
