@@ -4,11 +4,34 @@
     font-family: "Circular Std", Arial;
     font-style: normal;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 12px;
     line-height: 46px;
-    color:black;
+    color:white;
+    background-color: #12120F;
 }
 
+body {
+    background-color: #12120F;
+}
+
+.gradient-text {
+    background-color: rgba(92, 99, 255, 1);
+    background-image: linear-gradient(45deg, #5C63FF,#A8BFFF);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+
+.container div a h2 {
+    font-family: Circular Std;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 50px;
+    text-decoration-line: underline;
+    color: white;
+}
 
 a {
     font-family: "Circular Std", Arial;
@@ -16,4 +39,42 @@ a {
     font-weight: bold;
     text-decoration: none !important;
 
+}
+
+/* Top Artist */
+.Top-Artist{
+    position: absolute;
+    width: 152px;
+    height: 149px;
+    left: 674px;
+    top: 278px;
+
+    background: url(TS.jpg);
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+/* Top Artist 2 */
+.Top-Artist-2{
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    left: 793px;
+    top: 335px;
+
+    background: url(JM.jpg);
+    border-radius: 30px;
+}
+
+/* Top Artist 3 */
+.Top-Artist-3{
+    position: absolute;
+    width: 244px;
+    height: 244px;
+    left: 946px;
+    top: 138px;
+
+    background: url(Beatles.jpg);
+    border-radius: 30px;
+    object-fit: cover;
 }
