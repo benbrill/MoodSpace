@@ -1,6 +1,9 @@
+.Logo{
+    padding: 0 10px 0 0;
+}
 .container {
     text-align: left;
-    padding: 10px;
+    padding: 30px;
     font-family: "Circular Std", Arial;
     font-style: normal;
     font-weight: normal;
@@ -47,6 +50,7 @@ body {
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
+    padding: 30px 0 50px 0;
 }
 .subheading-gradient-text {
     font-size: 24px;

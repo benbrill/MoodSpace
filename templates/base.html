@@ -18,25 +18,25 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <img src="{{url_for('static', filename='assets/Logo.svg')}}" width = "30" height = "30" alt="">
+      <img class="Logo" src="{{url_for('static', filename='assets/Logo.svg')}}" width = "30" height = "30" alt="">
         <a class="navbar-brand" href="{{ url_for('index')}}">Moodspace</a>        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-            <li>
+            <!-- <li>
                 <a class="nav-link" href="#">Insights</a>
-            </li>
+            </li> -->
             <li class="nav-item active">
                 <a class = "nav-link" href="/playlists">My playlists</a> 
             </li>
             <li>
               <a class = "nav-link" href="/currently_playing">Currently Playing</a>
             </li>
-            <li>
+            <!-- <li>
               <a class = "nav-link" href="/current_user">Me</a>
-            </li>
+            </li> -->
             <li>
               <a class= "nav-link" href="/sign_out">Sign Out</a>
             </li>
