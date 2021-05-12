@@ -49,10 +49,10 @@ def index():
     # Step 4. Signed in, display data
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
-    top_tracks = spotify.current_user_top_artists(limit=10, offset=0, time_range='medium_term')
-    artist_img = top_tracks['images'][0]
-    artist_name = top_tracks['name']
-    return render_template("Home.html", display_name=display_name, artist_img=artist_img, artist_name=artist_name)
+    # top_tracks = spotify.current_user_top_artists(limit=10, offset=0, time_range='medium_term')
+    # artist_img = top_tracks['images'][0]
+    # artist_name = top_tracks['name']
+    return render_template("Home.html", display_name=display_name)
     
 
 @app.route('/sign_out')
@@ -91,7 +91,7 @@ def currently_playing():
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
         lyrics = get_lyrics.main(song_title, artist_name)
-        return render_template("CurrentlyPlaying.html", track=track, lyrics=lyrics, classification=classification)
+        return render_template("CurrentlyPlaying.html", track=track, lyrics=lyrics, classification=classification, artist_name=artist_name)
     return "No track currently playing."
 
 
