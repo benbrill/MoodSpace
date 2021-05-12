@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Hi, {{ display_name }} {% endblock %}</h1>
+    <h1 class= "gradient-text">{% block title %} Hi, {{ display_name }} {% endblock %}</h1>
+    <div class="Profile-Nav">
+        <a href="#">
+            <h2> MoodSpace Profile </h2>
+        </a>
+        <a href="#">
+            <h2> Find a song </h2>
+        </a>
+        <a href="#">
+            <h2> Recently Played </h2>
+        </a>
+        <a href="#">
+            <h2> Soundtrack Generator </h2>
+        </a>
+        <img class = "Top-Artist" src="{{url_for('static', filename='assets/TS.jpg')}}" alt = "Taylor Swift">
+        <img class = "Top-Artist-2" src="{{url_for('static', filename='assets/JM.jpg')}}" alt = "John Mayer">
+        <img class = "Top-Artist-3" src="{{url_for('static', filename='assets/Beatles.jpg')}}"alt = "Beatles">
+        <p>{{ top_tracks }}</p>
+    </div>
 
 {% endblock %}

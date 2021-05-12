@@ -49,7 +49,10 @@ def index():
     # Step 4. Signed in, display data
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
-    return render_template("Home.html", display_name=display_name)
+    top_tracks = spotify.current_user_top_artists(limit=10, offset=0, time_range='medium_term')
+    artist_img = top_tracks['images'][0]
+    artist_name = top_tracks['name']
+    return render_template("Home.html", display_name=display_name, artist_img=artist_img, artist_name=artist_name)
     
 
 @app.route('/sign_out')
