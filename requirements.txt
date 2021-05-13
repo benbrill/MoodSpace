@@ -9,6 +9,8 @@ python-dotenv~=0.15.0
 
 lxml
 
+lyricsgenius
+
 # tensorflow==2.2.0rc2
 # seaborn
 # keras

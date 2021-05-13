@@ -4,13 +4,17 @@ from flask_session import Session
 import spotipy
 import uuid
 
+import lyricsgenius
+
 # import Keras_Classification
 
 from dotenv import load_dotenv
 
-import get_lyrics
+# import get_lyrics
 
 load_dotenv();
+
+genius = lyricsgenius.Genius()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
@@ -90,8 +94,9 @@ def currently_playing():
         classification = None
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
-        lyrics = get_lyrics.main(song_title, artist_name)
-        return render_template("CurrentlyPlaying.html", track=track, lyrics=lyrics, classification=classification, artist_name=artist_name)
+        # lyrics = get_lyrics.main(song_title, artist_name)
+        genius_song = genius.search_song(song_title, artist_name)
+        return render_template("CurrentlyPlaying.html", track=track, lyrics=genius_song.lyrics, classification=classification, artist_name=artist_name)
     return "No track currently playing."
 
 
