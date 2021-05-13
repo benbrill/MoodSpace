@@ -8,13 +8,13 @@
             <div class="track_name"> {{ track['item']['name'] }} </div><div class="track_artist">{{ artist_name }} </div>
         </a>
         {% if lyrics is not none %}  
-        <p>
+        <p class="lyrics">
             {{ lyrics }}
         </p>
         {% endif %}
         <hr>
         {% if classification is not none %}  
-        <p>
+        <p class="classification">
             {{ classification }}
         </p>
         {% endif %}

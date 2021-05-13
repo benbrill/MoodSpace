@@ -57,6 +57,7 @@ body {
     background-color: rgba(92, 99, 255, 1);
     background-image: linear-gradient(90deg, #5C63FF,#A8BFFF);
     background-size: 100%;
+    padding: 0 0 10px 0;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -71,6 +72,12 @@ body {
     color: white;
 }
 
+.lyrics {
+    font-family: Circular Std;
+    font-style: normal;
+    font-size: 14px;
+    color: white;
+}
 /* Top Artist */
 .Top-Artist{
     position: absolute;
