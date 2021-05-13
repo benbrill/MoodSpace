@@ -91,7 +91,7 @@ def currently_playing():
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
         lyrics = get_lyrics.main(song_title, artist_name)
-        return render_template("CurrentlyPlaying.html", track=track, lyrics=lyrics, classification=classification, artist_name=artist_name)
+        return render_template("CurrentlyPlaying.html", track=track, lyrics=lyrics, classification=classification, song_title=song_title, artist_name=artist_name)
     return "No track currently playing."
 
 

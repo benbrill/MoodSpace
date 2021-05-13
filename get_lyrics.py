@@ -61,7 +61,7 @@ def main(song_title, artist_name):
         song_url = remote_song_info['result']['url']
         lyrics = scrap_song_url(song_url)
 
-        # print(lyrics)
+        print(lyrics)
         return lyrics
     else:
         print(defaults['message']['search_fail'])
@@ -73,5 +73,5 @@ def write_lyrics_to_file (lyrics, song, artist):
     f.write(lyrics)
     f.close()
 
-if __name__ == '__main__':
-    main("Through the Fire and Flames", "DragonForce")
+# if __name__ == '__main__':
+#     lyrics = main("Waiting on the World to Change", "John Mayer")
