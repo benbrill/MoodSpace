@@ -5,14 +5,14 @@
     {% if track is not none %} 
     <img class="Currently-Playing-img" src="{{ track['item']['album']['images'][0]['url'] }}" width="300" height = "300" > 
         <a class= "track_info" href="#">
-            <div class="track_name"> {{ track['item']['name'] }} </div><div class="track_artist">{{ artist_name }} </div>
+            <div class="track_name"> {{ song_title }} </div><div class="track_artist">{{ artist_name }} </div>
         </a>
         {% if lyrics is not none %}  
         <p class="lyrics">
             {{ lyrics }}
         </p>
         {% endif %}
-        <hr>
+
         {% if classification is not none %}  
         <p class="classification">
             {{ classification }}
