@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="subheading-gradient-text">{% block title %} Choose a Movie {% endblock %}</h1>
+
+    <form method="POST">
+        <label for="movie_scene">Choose a scene:</label>
+        <select name="movie_scene" id="movie_scene">
+          {% for movie in movies %}
+              <option value= "{{movie}}" SELECTED>{{movie}}</option>"
+          {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+      
+    {% if chosen_movie is not none %}
+    
+    <iframe width="560" height="315" src="{{ chosen_movie['youtube_url'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    {% endif %}
+{% endblock %}

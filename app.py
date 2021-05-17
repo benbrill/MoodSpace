@@ -3,6 +3,7 @@ from flask import Flask, session, request, redirect, render_template
 from flask_session import Session
 import spotipy
 import uuid
+import json
 
 import lyricsgenius
 
@@ -111,6 +112,34 @@ def current_user():
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     return spotify.current_user()
+
+
+@app.route('/choose_movie')
+def choose_movie():
+    cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
+
+    if not auth_manager.validate_token(cache_handler.get_cached_token()):
+        return redirect('/')
+    spotify = spotipy.Spotify(auth_manager=auth_manager)
+
+    with open('static/assets/movie_data.json') as f:
+        data = json.load(f)
+    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=None)
+
+@app.route('/choose_movie', methods=["POST"])
+def choose_movie_post():
+    cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
+
+    if not auth_manager.validate_token(cache_handler.get_cached_token()):
+        return redirect('/')
+    spotify = spotipy.Spotify(auth_manager=auth_manager)
+
+    chosen_movie = request.form['movie_scene']
+    with open('static/assets/movie_data.json') as f:
+        data = json.load(f)
+    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie])
 
 
 '''
