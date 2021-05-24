@@ -54,12 +54,23 @@ def index():
     # Step 4. Signed in, display data
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
-    # top_tracks = spotify.current_user_top_artists(limit=10, offset=0, time_range='medium_term')
-    # artist_img = top_tracks['images'][0]
-    # artist_name = top_tracks['name']
-    return render_template("Home.html", display_name=display_name)
+    top_artists = spotify.current_user_top_artists(limit=5, offset=0, time_range='long_term')
+    artist_1_img = top_artists['items'][0]['images'][0]['url']
+    artist_2_img = top_artists['items'][1]['images'][0]['url']
+    artist_3_img = top_artists['items'][2]['images'][0]['url']
+    artist_4_img = top_artists['items'][3]['images'][0]['url']
+    artist_5_img = top_artists['items'][4]['images'][0]['url']
     
-
+    artist_1_name = top_artists['items'][0]['name']
+    artist_2_name = top_artists['items'][1]['name']
+    artist_3_name = top_artists['items'][2]['name']
+    artist_4_name = top_artists['items'][3]['name']
+    artist_5_name = top_artists['items'][4]['name']
+    top_artists = [artist_1_name, artist_2_name, artist_3_name, artist_4_name, artist_5_name]
+    artist_imgs = [artist_1_img, artist_2_img, artist_3_img, artist_4_img, artist_5_img] 
+    return render_template("Home.html", display_name=display_name, top_artists = top_artists, artist_imgs=artist_imgs)
+    top_songs = spotify.current_user_top_tracks(limit=3, offset=0, time_range='long_term')
+    
 @app.route('/sign_out')
 def sign_out():
     try:

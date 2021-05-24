@@ -1,12 +1,81 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class= "gradient-text">{% block title %} Hi, {{ display_name }} {% endblock %}</h1>
-    <span>
-        <img class = "Top-Artist-1" src="{{url_for('static', filename='assets/Beatles.jpg')}}" alt = "Beatles">
-        <img class = "Top-Artist-2" src="{{url_for('static', filename='assets/JM.jpg')}}" alt = "John Mayer">
-        <img class = "Top-Artist-3" src="{{url_for('static', filename='assets/TS.jpg')}}"alt = "Taylor Swift">
-    </span>
+    <script src="app.js" type="ea4e4fe1daf3973affa24e43-text/javascript"></script>
+    
+
+    <div class="text-box">
+        <h1 >{% block title %} Hi, {{ display_name }}! {% endblock %}</h1>
+        <p>Combining music and movies to create your personalized soundtrack.</p>
+        <a href="" class="standard-btn">My Insights</a>
+        <a href="" class="light-btn">Soundtrack Generator</a>
+        <a href="" class="standard-btn">Current Mood</a>
+    
+    </div> 
+
+    <!--Top Artists-->
+
+    <section class="top-artists">
+      <h1>Your Top Artists</h1>
+      <p>Artists you've loved for a long time.</p>
+
+      <div class="row">
+        <div class="artist-col">
+            <h3>#1</h3>
+            <p>{{ top_artists[0] }}</p>
+            <img src="{{ artist_imgs[0] }}" height="200" width="200">
+        </div>
+        <div class="artist-col">
+            <h3>#2</h3>
+            <p>{{ top_artists[1] }}</p>
+            <img src="{{ artist_imgs[1] }}" height="200" width="200">
+        </div>
+        <div class="artist-col">
+            <h3>#3</h3>
+            <p>{{ top_artists[2] }}</p>
+            <img src="{{ artist_imgs[2] }}" height="200" width="200">
+        </div>
+      </div>
+    </section>
+
+    <!--Top Tracks-->
+
+    <section class="top-tracks">
+        <h1>Your Top Tracks:</h1>
+        <p>Your favorite tunes of all time.</p>
+
+        <div class="row">
+            <div class="top-tracks-col">
+                <img src="{{ artist_imgs[0] }}">
+                <div class="img-layer">
+                    <h3>Arists</h3>
+                </div>
+            </div>
+            <div class="top-tracks-col">
+                <img src="{{ artist_imgs[1] }}">
+                <div class="img-layer">
+                    <h3>Arists</h3>
+                </div>
+            </div>
+            <div class="top-tracks-col">
+                <img src="{{ artist_imgs[3] }}">
+                <div class="img-layer">
+                    <h3>Arists</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <div class="container">
+         
+    <section class = "container-imgs">
+        <img class = "Top-Artist-1" src="{{ artist_imgs[0] }}" alt = "Top Artist">
+        <img class = "Top-Artist-2" src="{{ artist_imgs[1] }}" alt = "Top Artist 2">
+        <img class = "Top-Artist-3" src="{{ artist_imgs[2] }}"alt = "Top Artist 3">
+    </section>
+
+
     <div class="Profile-Nav">
         <a href="#">
             <h2> MoodSpace Profile </h2>
@@ -21,5 +90,29 @@
             <h2> Soundtrack Generator </h2>
         </a>
     </div>
+</div>
 
+    <div class="top_artists">
+        <h1 class="gradient-text">Your Top Artists:</h1>
+            <div class="subheading">
+            <ol class="Artist1">
+                <span>
+                #1 {{ top_artists[0] }}
+                </span>
+                <img class = "Top-Artist-Img" src="{{ artist_imgs[0] }}" alt = "Top Artist 1">
+            </ol>
+            <div class="top-artists-container">
+            <ol class="Artist2">
+                <div class="not-top-artists"><span>#2 {{ top_artists[1] }}</span><span>#3 {{ top_artists[2] }}</span><span> #4 {{ top_artists[3] }}</span><span>#5 {{ top_artists[4] }}</span></div>
+                <div class = "not-top-artists-images">
+                <img class = "Top-Artist-Img" src="{{ artist_imgs[1] }}" alt = "Top Artist 2">
+                <img class = "Top-Artist-Img" src="{{ artist_imgs[2] }}" alt = "Top Artist 3">
+                <img class = "Top-Artist-Img" src="{{ artist_imgs[3] }}"alt = "Top Artist 4">
+                <img class = "Top-Artist-Img" src="{{ artist_imgs[4] }}"alt = "Top Artist 5">
+                </div>
+            </ol>
+            </div>
+
+            </div>
+    </div> -->
 {% endblock %}
