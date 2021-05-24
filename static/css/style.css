@@ -74,10 +74,12 @@ nav img{
 
 .text-box h1{
     font-size: 64px;
+    font-weight: 700;
 }
 .text-box p{
     margin: 10px 0 40px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 300;
     color: #fff;
 }
 .standard-btn{
@@ -339,13 +341,20 @@ body {
 
 .choose-movie h1{
     color: white;
-    font-size: 35px;
-    font-weight: 500;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.choose-movie h2{
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 15px;
 }
 
 .select-movie label{
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
 }
 
