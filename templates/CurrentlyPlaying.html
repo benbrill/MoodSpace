@@ -1,22 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="subheading-gradient-text">{% block title %} Currently Playing {% endblock %}</h1>
-    {% if track is not none %} 
-    <img class="Currently-Playing-img" src="{{ track['item']['album']['images'][0]['url'] }}" width="300" height = "300" > 
-        <a class= "track_info" href="#">
-            <div class="track_name"> {{ song_title }} </div><div class="track_artist">{{ artist_name }} </div>
-        </a>
-        {% if lyrics is not none %}  
-        <p class="lyrics">
-            {{ lyrics }}
-        </p>
-        {% endif %}
+<body>
+    
 
-        {% if classification is not none %}  
-        <p class="classification">
-            {{ classification }}
-        </p>
-        {% endif %}
+<div class="text-box">
+    <h1 > Currently Playing... </h1><br>
+    <a href="" class="standard-btn">Scroll to See More</a>
+
+</div> 
+
+<div class="currently-playing">
+    <div class="left-column">
+        <h1>{% block title %} {{ song_title }} {% endblock %}</h1>
+        <h4>{{ artist_name }}</h4>
+    </div>
+    <div class="right-column">
+        <img src="{{ track['item']['album']['images'][0]['url'] }}">
+    </div>
+
+</div>
+        
+    {% if track is not none %} 
+
+<section class="current">
+    <h1>Lyrics</h1>
+    <h4>Powered by Genuis Lyrics</h4>
+
+    {% if lyrics is not none %}  
+    <p class="lyrics">
+        {{ lyrics }}
+    </p>
     {% endif %}
+
+    {% if classification is not none %}  
+    <p class="classification">
+        {{ classification }}
+    </p>
+    {% endif %}
+</section>
+{% endif %}
+
+
+    
+        
 {% endblock %}
+</body>

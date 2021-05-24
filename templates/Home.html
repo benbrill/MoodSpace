@@ -2,6 +2,7 @@
 
 {% block content %}
     <script src="app.js" type="ea4e4fe1daf3973affa24e43-text/javascript"></script>
+    <body class="home">
     
 
     <div class="text-box">
@@ -9,7 +10,7 @@
         <p>Combining music and movies to create your personalized soundtrack.</p>
         <a href="" class="standard-btn">My Insights</a>
         <a href="" class="light-btn">Soundtrack Generator</a>
-        <a href="" class="standard-btn">Current Mood</a>
+        <a href="/currently_playing" class="standard-btn">Current Mood</a>
     
     </div> 
 
@@ -46,26 +47,45 @@
 
         <div class="row">
             <div class="top-tracks-col">
-                <img src="{{ artist_imgs[0] }}">
+                <img src="{{ top_track_imgs[0] }}">
                 <div class="img-layer">
-                    <h3>Arists</h3>
+                    <h3>{{top_track_names[0]}} <br> <span>{{top_track_artist_names[0]}}</span></h3>
                 </div>
             </div>
             <div class="top-tracks-col">
-                <img src="{{ artist_imgs[1] }}">
+                <img src="{{ top_track_imgs[1] }}">
                 <div class="img-layer">
-                    <h3>Arists</h3>
+                    <h3>{{top_track_names[1]}} <br> <span>{{top_track_artist_names[1]}}</span></h3>
                 </div>
             </div>
             <div class="top-tracks-col">
-                <img src="{{ artist_imgs[3] }}">
+                <img src="{{ top_track_imgs[2] }}">
                 <div class="img-layer">
-                    <h3>Arists</h3>
+                    <h3>{{top_track_names[2]}} <br> <span>{{top_track_artist_names[2]}}</span></h3>
+                </div>
+            </div>
+            <div class="top-tracks-col">
+                <img src="{{ top_track_imgs[3] }}">
+                <div class="img-layer">
+                    <h3>{{top_track_names[3]}} <br> <span>{{top_track_artist_names[3]}}</span></h3>
+                </div>
+            </div>
+            <div class="top-tracks-col">
+                <img src="{{ top_track_imgs[4] }}">
+                <div class="img-layer">
+                    <h3>{{top_track_names[4]}} <br> <span>{{top_track_artist_names[4]}}</span></h3>
+                </div>
+            </div>
+            <div class="top-tracks-col">
+                <img src="{{ top_track_imgs[5] }}">
+                <div class="img-layer">
+                    <h3>{{top_track_names[5]}} <br> <span>{{top_track_artist_names[5]}}</span></h3>
+                    
                 </div>
             </div>
         </div>
     </section>
-
+</body>
 
     <!-- <div class="container">
          

@@ -66,10 +66,39 @@ def index():
     artist_3_name = top_artists['items'][2]['name']
     artist_4_name = top_artists['items'][3]['name']
     artist_5_name = top_artists['items'][4]['name']
+
     top_artists = [artist_1_name, artist_2_name, artist_3_name, artist_4_name, artist_5_name]
     artist_imgs = [artist_1_img, artist_2_img, artist_3_img, artist_4_img, artist_5_img] 
-    return render_template("Home.html", display_name=display_name, top_artists = top_artists, artist_imgs=artist_imgs)
-    top_songs = spotify.current_user_top_tracks(limit=3, offset=0, time_range='long_term')
+
+    top_tracks = spotify.current_user_top_tracks(limit=6, offset=0, time_range='long_term')
+    top_tracks_1 = top_tracks['items'][0]['name']
+    top_tracks_2 = top_tracks['items'][1]['name']
+    top_tracks_3 = top_tracks['items'][2]['name']
+    top_tracks_4 = top_tracks['items'][3]['name']
+    top_tracks_5 = top_tracks['items'][4]['name']
+    top_tracks_6 = top_tracks['items'][5]['name']
+
+    artist_1_name = top_tracks['items'][0]['artists'][0]['name']
+    artist_2_name = top_tracks['items'][1]['artists'][0]['name']
+    artist_3_name = top_tracks['items'][2]['artists'][0]['name']
+    artist_4_name = top_tracks['items'][3]['artists'][0]['name']
+    artist_5_name = top_tracks['items'][4]['artists'][0]['name']
+    artist_6_name = top_tracks['items'][5]['artists'][0]['name']
+
+    top_track_1_img = top_tracks['items'][0]['album']['images'][0]['url']
+    top_track_2_img = top_tracks['items'][1]['album']['images'][0]['url']
+    top_track_3_img = top_tracks['items'][2]['album']['images'][0]['url']
+    top_track_4_img = top_tracks['items'][3]['album']['images'][0]['url']
+    top_track_5_img = top_tracks['items'][4]['album']['images'][0]['url']
+    top_track_6_img = top_tracks['items'][5]['album']['images'][0]['url']
+
+    top_track_names = [top_tracks_1, top_tracks_2, top_tracks_3, top_tracks_4, top_tracks_5, top_tracks_6]
+    top_track_imgs = [top_track_1_img, top_track_2_img, top_track_3_img, top_track_4_img, top_track_5_img, top_track_6_img] 
+    top_track_artist_names = [artist_1_name, artist_2_name, artist_3_name, artist_4_name, artist_5_name, artist_6_name]
+
+    return render_template("Home.html", display_name=display_name, top_artists = top_artists, artist_imgs=artist_imgs, 
+    top_track_names=top_track_names, top_track_imgs=top_track_imgs, top_track_artist_names=top_track_artist_names)
+    
     
 @app.route('/sign_out')
 def sign_out():

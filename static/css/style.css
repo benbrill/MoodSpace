@@ -1,176 +1,16 @@
-/* .Logo{
-    padding: 0 10px 0 0;
-}
-.container {
-    text-align: left;
-    padding: 30px;
-    font-family: "Circular Std", Arial;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 46px;
-    color:white;
-}
-body {
-    background-color: #12120F;
-}
-
-.track_info{
-    position: relative;
-    text-align: left;
-}
-.Currently-Playing-img{
-    float: left;
-    border-radius: 30px;
-    margin: 0 25px 0 0;
-}
-.track_name{
-    font-weight: bold;
-    font-size: 64px;
-    line-height: 81px;
-    width: 1000px;
-    color: #FFFFFF;
-}
-.track_artist{
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 30px;
-
-    color: #FFFFFF;
-    opacity: 0.6;
-}
-.gradient-text {
-    background-color: rgba(92, 99, 255, 1);
-    background-image: linear-gradient(90deg, #5C63FF,#A8BFFF);
-    background-size: 30%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
-    padding: 50px 0 30px 0;
-    margin-left: 40px;
-}
-.subheading-gradient-text {
-    font-size: 24px;
-    background-color: rgba(92, 99, 255, 1);
-    background-image: linear-gradient(90deg, #5C63FF,#A8BFFF);
-    background-size: 100%;
-    padding: 0 0 0 10px;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
-}
-.container div a h2 {
-    font-family: Circular Std;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 50px;
-    text-decoration-line: underline;
-    color: white;
-}
-
-.lyrics {
-    font-family: Circular Std;
-    font-style: normal;
-    font-size: 14px;
-    color: white;
-}
-
-.Top-Artist-3{
-    position: absolute;
-    width: 152px;
-    height: 149px;
-    left: 674px;
-    top: 278px;
-
-    border-radius: 30px;
-}
-
-
-.Top-Artist-2{
-    position: absolute;
-    width: 225px;
-    height: 225px;
-    left: 793px;
-    top: 335px;
-
-    border-radius: 30px;
-}
-
-
-.Top-Artist-1{
-    position: absolute;
-    width: 244px;
-    height: 244px;
-    left: 946px;
-    top: 138px;
-
-    border-radius: 30px;
-    object-fit: cover;
-}
-
-.top_artists{
-    position: absolute;
-    width: 1366px;
-    height: 672px;
-    left: 0px;
-    top: 653px;
-    z-index: -3;
-    margin-right: 40px;
-
-    background: rgb(56, 55, 55);
-    font-family: Circular Std;
-    font-style: normal;
-    font-size: 18px;
-    color: white;
-    text-align: left;
-    line-height: 46px;
-}
-.top-artists-container{
-    text-align: left;
-    padding: 50px;
-    margin-left: 70px;
-    font-family: "Circular Std", Arial;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 46px;
-    height: 200px;
-    color:white;
-}
-.Artist1 {
-    font-size: 30px;
-    text-align: left;
-    line-height: 46px;
-    margin-left: 60px;
-}
-.Artist2 {
-    font-size: 20px;
-    line-height: 46px;
-}
-.Top-Artist-Img{
-    position: static;
-    width: 150px;
-    height: 150px;
-
-    border-radius: 30px;
-}
-
-div span{
-    margin-right: 80px
-}
-
-div img {
-    margin-right: 50px
-} */
-
 *{
     margin: 0;
     padding: 0;
     font-family: 'Circular Std', 'Poppins', sans-serif;
 }
-
+/* .current{
+    background-color:rgb(28, 29, 65);
+    z-index: -999;
+} */
+.home{
+    background-color:rgb(28, 29, 65);
+    z-index: -1;
+}
 .header{
     min-height: 100vh;
     width: 100%;
@@ -318,16 +158,10 @@ nav .fa{
 .top-artists h1{
     font-size: 36px;
     font-weight: 600;
-    background-color: rgba(92, 99, 255, 1);
-    background-image: linear-gradient(90deg, #5C63FF,#A8BFFF);
-    background-size: 90%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
+    color: white;
 }
 
-p{
+.top-artists p{
     color: rgba(92, 99, 255, 1);
     font-size: 14px;
     font-weight: 300;
@@ -342,10 +176,10 @@ p{
 
 .artist-col{
     flex-basis: 30%;
-    background: #A8BFFF;
-    border-radius: 10px;
+    background: rgb(255, 255, 255, 0.03);
+    border-radius: 50px;
     margin-bottom: 10%;
-    padding: 40px 20px;
+    padding: 20px 0 50px 0;
     box-sizing: border-box;
     transition: 0.5s;
 }
@@ -356,7 +190,7 @@ p{
 .artist-col:hover{
     box-shadow: 0 0 20px 0px rgba(92, 99, 255, 1);
 }
-h3{
+.top-artists h3{
     text-align: center;
     font-weight: 600;
     margin: 10px 0;
@@ -375,6 +209,19 @@ h3{
     margin: auto;
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.top-tracks h1{
+    color: white;
+}
+
+.top-tracks p{
+    color: rgba(92, 99, 255, 1);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
 }
 
 .top-tracks-col{
@@ -391,7 +238,7 @@ h3{
 }
 
 .img-layer{
-    background:rgba(92, 99, 255, 0.3);
+    background:rgba(92, 99, 255, 0.15);
     height: 100%;
     width:100%;
     position: absolute;
@@ -417,6 +264,50 @@ h3{
     transition: 0.5s;
 }
 .img-layer:hover h3{
-    bottom: 45%;
+    bottom: 35%;
     opacity: 1;
+}
+
+.img-layer h3 span{
+    font-size: 12px;
+    font-weight: 300px;
+    color: #A8BFFF;
+}
+
+/* Currently PLaying */
+
+.currently-playing{
+    display: flex;
+    margin-top: 80px;
+    z-index: 1;
+}
+
+.left-column, .right-column{
+    flex-basis: 50%;
+}
+.right-column img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.left-column h1{
+    font-size: 70px;
+    color: rgba(92, 99, 255, 1);
+
+}
+.left-column h4{
+    font-size: 30px;
+    color: #A8BFFF;
+}
+
+.current h1, h4{
+    color: rgba(92, 99, 255, 1);
+}
+.lyrics{
+    color: #A8BFFF;
+}
+
+body{
+    background-color:rgb(28, 29, 65);
+    z-index: -999;
 }
