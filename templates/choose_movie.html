@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="subheading-gradient-text">{% block title %} Choose a Movie {% endblock %}</h1>
-
+<body>
+  <div class=choose-movie>
+    <h1>{% block title %} Choose a Movie {% endblock %}</h1>
+  </div>
+  <div class="select-movie">
     <form method="POST">
         <label for="movie_scene">Choose a scene:</label>
         <select name="movie_scene" id="movie_scene">
@@ -13,10 +16,11 @@
         <br><br>
         <input type="submit" value="Submit">
       </form>
-      
+    </div>
     {% if chosen_movie is not none %}
     
     <iframe width="560" height="315" src="{{ chosen_movie['youtube_url'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     {% endif %}
+  </body>
 {% endblock %}

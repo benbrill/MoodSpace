@@ -3,10 +3,7 @@
     padding: 0;
     font-family: 'Circular Std', 'Poppins', sans-serif;
 }
-/* .current{
-    background-color:rgb(28, 29, 65);
-    z-index: -999;
-} */
+
 .home{
     background-color:rgb(28, 29, 65);
     z-index: -1;
@@ -164,8 +161,15 @@ nav .fa{
 }
 
 .top-artists p{
-    color: rgba(92, 99, 255, 1);
-    font-size: 14px;
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+.row p{
+    color: whitesmoke;
+    font-size: 22px;
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
@@ -178,7 +182,7 @@ nav .fa{
 
 .artist-col{
     flex-basis: 30%;
-    background: rgb(255, 255, 255, 0.03);
+    background: rgb(255, 255, 255, 0.15);
     border-radius: 50px;
     margin-bottom: 10%;
     padding: 20px 0 50px 0;
@@ -219,8 +223,8 @@ nav .fa{
 }
 
 .top-tracks p{
-    color: rgba(92, 99, 255, 1);
-    font-size: 14px;
+    color: whitesmoke;
+    font-size: 18px;
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
@@ -294,29 +298,29 @@ nav .fa{
 
 .left-column h1{
     font-size: 70px;
-    color: rgba(92, 99, 255, 1);
+    color: whitesmoke;
 
 }
 .left-column h4{
     font-size: 30px;
-    color: #A8BFFF;
+    color:rgb(22, 25, 116);
 }
 
 .current h1, h4{
-    color: #5c63ff;
+    color:rgb(22, 25, 116);
 }
 .lyrics{
-    color: #A8BFFF;
+    color: whitesmoke;
 }
 
-/* body{
-    background-color:rgb(28, 29, 65);
-    z-index: -999;
-} */
+/* linear gradient background */
 body {
 	background: linear-gradient(-45deg, #5c63ff, #3b41c5, #A8BFFF, #ffc8a9);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 30s ease infinite;
+    background-repeat: no-repeat;
+    /* background-color:rgb(28, 29, 65);
+    z-index: -999; */
 }
 
 @keyframes gradient {
@@ -329,4 +333,41 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+/* Choose a Movie */
+
+.choose-movie h1{
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.select-movie label{
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.select-movie select{
+    color:rgba(92, 99, 255, 1);
+    padding: 5px 40px;
+    display: inline;
+    border-radius: 30px;
+    position: relative;
+    margin: 10px 15px;
+    border-style: none;
+}
+
+.select-movie input{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 34px;
+    font-size: 14px;
+    background:rgba(92, 99, 255, 1);
+    border-style: none;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
 }
