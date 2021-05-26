@@ -54,47 +54,19 @@ def index():
     # Step 4. Signed in, display data
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
-    top_artists = spotify.current_user_top_artists(limit=5, offset=0, time_range='long_term')
-    artist_1_img = top_artists['items'][0]['images'][0]['url']
-    artist_2_img = top_artists['items'][1]['images'][0]['url']
-    artist_3_img = top_artists['items'][2]['images'][0]['url']
-    artist_4_img = top_artists['items'][3]['images'][0]['url']
-    artist_5_img = top_artists['items'][4]['images'][0]['url']
-    
-    artist_1_name = top_artists['items'][0]['name']
-    artist_2_name = top_artists['items'][1]['name']
-    artist_3_name = top_artists['items'][2]['name']
-    artist_4_name = top_artists['items'][3]['name']
-    artist_5_name = top_artists['items'][4]['name']
 
-    top_artists = [artist_1_name, artist_2_name, artist_3_name, artist_4_name, artist_5_name]
-    artist_imgs = [artist_1_img, artist_2_img, artist_3_img, artist_4_img, artist_5_img] 
+    top_artists = spotify.current_user_top_artists(limit=5, offset=0, time_range='long_term')
+    # TODO: if someone has very few top things, going up to 6 doesn't work.
+    # in the template, we should probably have a for loop and make this variable length somehow
+    artist_imgs = [top_artists['items'][i]['images'][0]['url'] for i in range(2)]
+    top_artists = [top_artists['items'][i]['name'] for i in range(2)]
+
 
     top_tracks = spotify.current_user_top_tracks(limit=6, offset=0, time_range='long_term')
-    top_tracks_1 = top_tracks['items'][0]['name']
-    top_tracks_2 = top_tracks['items'][1]['name']
-    top_tracks_3 = top_tracks['items'][2]['name']
-    top_tracks_4 = top_tracks['items'][3]['name']
-    top_tracks_5 = top_tracks['items'][4]['name']
-    top_tracks_6 = top_tracks['items'][5]['name']
+    top_track_names = [top_tracks['items'][i]['name'] for i in range(2)]
+    top_track_artist_names = [top_tracks['items'][i]['artists'][0]['name'] for i in range(2)]
+    top_track_imgs = [top_tracks['items'][i]['album']['images'][0]['url'] for i in range(2)]
 
-    artist_1_name = top_tracks['items'][0]['artists'][0]['name']
-    artist_2_name = top_tracks['items'][1]['artists'][0]['name']
-    artist_3_name = top_tracks['items'][2]['artists'][0]['name']
-    artist_4_name = top_tracks['items'][3]['artists'][0]['name']
-    artist_5_name = top_tracks['items'][4]['artists'][0]['name']
-    artist_6_name = top_tracks['items'][5]['artists'][0]['name']
-
-    top_track_1_img = top_tracks['items'][0]['album']['images'][0]['url']
-    top_track_2_img = top_tracks['items'][1]['album']['images'][0]['url']
-    top_track_3_img = top_tracks['items'][2]['album']['images'][0]['url']
-    top_track_4_img = top_tracks['items'][3]['album']['images'][0]['url']
-    top_track_5_img = top_tracks['items'][4]['album']['images'][0]['url']
-    top_track_6_img = top_tracks['items'][5]['album']['images'][0]['url']
-
-    top_track_names = [top_tracks_1, top_tracks_2, top_tracks_3, top_tracks_4, top_tracks_5, top_tracks_6]
-    top_track_imgs = [top_track_1_img, top_track_2_img, top_track_3_img, top_track_4_img, top_track_5_img, top_track_6_img] 
-    top_track_artist_names = [artist_1_name, artist_2_name, artist_3_name, artist_4_name, artist_5_name, artist_6_name]
 
     return render_template("Home.html", display_name=display_name, top_artists = top_artists, artist_imgs=artist_imgs, 
     top_track_names=top_track_names, top_track_imgs=top_track_imgs, top_track_artist_names=top_track_artist_names)

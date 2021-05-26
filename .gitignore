@@ -4,5 +4,5 @@
 .env
 /__pycache__
 /env
-/Data
 /.vscode
+.vscode/settings.json
