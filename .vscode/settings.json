@@ -1,8 +1,0 @@
-{
-<<<<<<< Updated upstream
-    "python.pythonPath": "env\\Scripts\\python.exe"
-=======
-    "python.pythonPath": "venv/bin/python",
-    "jupyter.jupyterServerType": "local"
->>>>>>> Stashed changes
-}
