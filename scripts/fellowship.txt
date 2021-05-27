@@ -13,7 +13,7 @@ Frodo sits amongst a council of free-peoples of Middle earth,
 Elrond stands before them, addressing Gandalf, Strider,
 Legolas, and 20 other elves, Dwarves, and men.
 
-                    ELROND (CONT'D)
+                    ELROND 
           Bring forth the ring, Frodo.
 
 Frodo steps forward and moves towards a stone Plinth. He
@@ -26,11 +26,6 @@ places the ring on the plinth and returns to his seat.
                     LEGOLAS
               (disbelief)
           Sauron's Ring! The ring of power!
-
-                                                    (CONTINUED)
-
-                                                            74.
-CONTINUED:
 
 
                      GIMLI
@@ -87,10 +82,7 @@ Frodo looks at Strider questioningly...Boromir turns sharply.
           You have only one choice..the ring must
           be destroyed.
 
-                                                    (CONTINUED)
-
-                                                            75.
-CONTINUED: (2)
+                                                    
 
 
 The HUM OF THE RING seems to grow louder in Frodo's ears.
@@ -110,7 +102,7 @@ with concern.
           The ring cannot be destroyed, Gimli, son
           of Gloin, by any craft that we
 
-                    ELROND (CONT'D)
+                    ELROND 
           here possess. The ring was made in the
           fires of Mount Doom...only there can it
           be unmade. It must be taken deep into
@@ -147,10 +139,6 @@ council in a quiet voice
 
 Gimli leaps to his feet!
 
-                                                    (CONTINUED)
-
-                                                              76.
-CONTINUED: (3)
 
 
                     GIMLI
@@ -164,7 +152,7 @@ motion...the angry faces, the shaking fists, the accusatory
 fingers, his eyes move across to the ring...the hum grows
 louder in his head.
 
-                    GIMLI (CONT'D)
+                    GIMLI 
               (shouting)
           Never trust an Elf!
 
@@ -190,7 +178,7 @@ a strong, clear voice.
 Sudden silence...Frodo looks around the room at the astounded
 faces.
 
-                    FRODO (CONT'D)
+                    FRODO 
               (quietly)
           Though...I do not know the way. Gandalf
           rises to his feet.
