@@ -1,11 +1,13 @@
 {
     "Star Wars": {
         "name": "Star Wars",
-        "youtube_url": "https://www.youtube.com/embed/U1MnMA0TzGI"
+        "youtube_url": "https://www.youtube.com/embed/U1MnMA0TzGI",
+        "weights": [ 0.1899558, 0.7987493, -0.4137746, -0.49113056, 0.04731353, 0.20073612, -0.85679483, -3.7943552]
     },
     "Star Trek": {
         "name": "Star Trek",
-        "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA"
+        "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
+        "weights": [ 0.5809208, 0.24919447, -0.14036848, 0.17545265,-0.02242547,0.33280563, -0.93502694, -5.101842  ]
     }
 
 }

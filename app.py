@@ -8,7 +8,7 @@ import json
 import lyricsgenius
 
 import classification
-
+import pandas as pd
 from dotenv import load_dotenv
 
 # import get_lyrics
@@ -109,7 +109,6 @@ def currently_playing():
 
 
         genius_song = genius.search_song(song_title, artist_name)
-        # lyrics=genius_song.lyrics
         if genius_song is not None:
             return render_template("CurrentlyPlaying.html", track=track, lyrics=genius_song.lyrics, classification=my_classification, song_title=song_title, artist_name=artist_name)
         else:
@@ -152,6 +151,26 @@ def choose_movie_post():
     chosen_movie = request.form['movie_scene']
     with open('static/assets/movie_data.json') as f:
         data = json.load(f)
+
+    top_tracks = spotify.current_user_top_tracks(limit=100, offset=0, time_range='long_term')
+
+    track_artist_name_pairs = {
+        "track_name": [top_tracks['items'][i]['name'] for i in range(50)],
+        "artists": [top_tracks['items'][i]['artists'][0]['name'] for i in range(50)]
+        }
+
+    def get_lyrics(X):
+        try:
+            r = genius.search_song(X['trackName'], X['artist']).lyrics
+        except:
+            return None
+        return r
+
+    df = pd.DataFrame(track_artist_name_pairs)
+
+
+    df['lyrics'] = df.apply(get_lyrics, axis = 1)
+
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie])
 
 
