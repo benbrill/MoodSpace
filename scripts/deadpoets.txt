@@ -1,10 +1,10 @@
 Mr. McAllister leads his students, textbooks in hand, through the
 snow outside the classrooms.
 
-				McALLISTER
-		Grass is gramen or herba. Lapis is 
-		stone. The entire building is 
-		aedificium.
+McALLISTER
+Grass is gramen or herba. Lapis is 
+stone. The entire building is 
+aedificium.
 
 Keating looks out from his office window. McAllister pauses and looks
 up at Keating, giving him a brief wave. Keating waves back.
@@ -19,8 +19,8 @@ INT. KEATING'S CLASSROOM - DAY
 The students are all seated at their desks in silence. Everyone looks
 as the door opens. They quickly stand as Mr. Nolan enters the room.
 
-				MR. NOLAN
-		Sit.
+MR. NOLAN
+Sit.
 
 The students sit once again as Mr. Nolan walks to the front of the room.
 
