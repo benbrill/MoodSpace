@@ -7,7 +7,7 @@ import json
 
 import lyricsgenius
 
-# import Keras_Classification
+import classification
 
 from dotenv import load_dotenv
 
@@ -103,16 +103,17 @@ def currently_playing():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     track = spotify.current_user_playing_track()
     if not track is None:
-        # classification = Keras_Classification.predict_mood(track['item']['id'])
-        classification = None
+        # my_classification = classification.main()
         song_title = track['item']['name']
         artist_name = track['item']['artists'][0]['name']
+
+
         genius_song = genius.search_song(song_title, artist_name)
-        lyrics=genius_song.lyrics
-        if lyrics is not None:
-            return render_template("CurrentlyPlaying.html", track=track, lyrics=genius_song.lyrics, classification=classification, song_title=song_title, artist_name=artist_name)
+        # lyrics=genius_song.lyrics
+        if genius_song is not None:
+            return render_template("CurrentlyPlaying.html", track=track, lyrics=genius_song.lyrics, classification=my_classification, song_title=song_title, artist_name=artist_name)
         else:
-            return render_template("CurrentlyPlaying.html", track=track, lyrics="Sorry, lyrics are not avaliable for this particular song", classification=classification, song_title=song_title, artist_name=artist_name)
+            return render_template("CurrentlyPlaying.html", track=track, lyrics="Sorry, lyrics are not avaliable for this particular song", classification=my_classification, song_title=song_title, artist_name=artist_name)
     return "No track currently playing."
 
 
