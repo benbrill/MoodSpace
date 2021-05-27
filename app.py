@@ -4,6 +4,9 @@ from flask_session import Session
 import spotipy
 import uuid
 import json
+import re
+import numpy as np
+from langdetect import detect
 
 import lyricsgenius
 
@@ -152,25 +155,45 @@ def choose_movie_post():
     with open('static/assets/movie_data.json') as f:
         data = json.load(f)
 
-    top_tracks = spotify.current_user_top_tracks(limit=100, offset=0, time_range='long_term')
+    top_tracks = spotify.current_user_top_tracks(limit=10, offset=0, time_range='long_term')
 
     track_artist_name_pairs = {
-        "track_name": [top_tracks['items'][i]['name'] for i in range(50)],
-        "artists": [top_tracks['items'][i]['artists'][0]['name'] for i in range(50)]
+        "track_name": [top_tracks['items'][i]['name'] for i in range(10)],
+        "artists": [top_tracks['items'][i]['artists'][0]['name'] for i in range(10)]
         }
 
     def get_lyrics(X):
         try:
-            r = genius.search_song(X['trackName'], X['artist']).lyrics
+            r = genius.search_song(X['track_name'], X['artists']).lyrics
         except:
             return None
         return r
 
     df = pd.DataFrame(track_artist_name_pairs)
 
+    def stringProcessing(s):
+        s = re.sub(r"\'", "", s)
+        s = re.sub(r'\n', ' ', s)
+        s = re.sub(r'\t', '', s)
+        s = re.sub(r"\[[^[]*\]", '', s)
+        s = re.sub(r'[^\w\s]', ' ', s)
+        s = re.sub(r' +', ' ', s)
+        s = s.strip()
+        s = s.lower()
+        return s
 
     df['lyrics'] = df.apply(get_lyrics, axis = 1)
+    df = df[~df['lyrics'].isna()]
+    df['lyrics'] = df['lyrics'].apply(stringProcessing)
+    df['language'] = df['lyrics'].apply(detect)
+    df = df[df['language'] == 'en']
 
+    weights = classification.main(df)
+    norms = np.linalg.norm(weights - np.array(data['chosen_movie']['weights']), axis = 1)
+    ix = np.argsort(norms)
+    sorted_df = df.iloc[ix]
+    top_3_songs = df.iloc[0:3]['track_names']
+    # df = pd.concat([df, pd.DataFrame(weights)], axis = 1)
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie])
 
 

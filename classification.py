@@ -45,13 +45,11 @@ def vectorize_headline(text):
 
 
 
-def main(text):
+def main(df):
     model = create_model()
-    
-    df = pd.DataFrame({"lyrics": text})
-    
+
     data = tf.data.Dataset.from_tensor_slices((df["lyrics"]))
 
     data_vec = data.map(vectorize_headline)
 
-    return model.predict(data_vec)[0]
+    return model.predict(data_vec)
