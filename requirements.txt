@@ -12,7 +12,6 @@ lxml
 lyricsgenius
 
 langdetect
-
 # tensorflow==2.2.0rc2
 # seaborn
 # keras
