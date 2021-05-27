@@ -1,4 +1,4 @@
-SCENE                                                      141
+
 
                    Horror from all. Kirk picks up a phaser. As the eel
                    clears Chekov, he fires and destroys it. He shudders,
@@ -9,8 +9,7 @@ SCENE                                                      141
                              finished! You'll have to do your
                              own dirty work now. Do you hear me?
                              Do you?
-
-             142   INT. RELIANT BRIDGE                                        142
+                                     
 
                    Khan reacts to Kirk's VOICE: electronic shock. He
                    clutches the communicator, his eye-whites rolling.
@@ -21,8 +20,6 @@ SCENE                                                      141
 
                    INTERCUT AS DESIRED WITH
 
-             143   ROCKY CAVERN - FAVORING KIRK                               143
-
                                            KIRK
                              Still, 'old friend.' You've
                              managed to kill just about everyone
@@ -30,7 +27,7 @@ SCENE                                                      141
                              keep missing the target.
 
                                            KHAN
-                                     (ironic)
+                                     ironic
                              Perhaps I no longer need to try.
 
                    He punches several buttons.
@@ -52,7 +49,7 @@ SCENE                                                      141
                    alone.
 
                                            KIRK
-                                     (desperate)
+                                     desperate
                              Khan, you have Genesis, but you
                              don't have me! You were going to
                              kill me, Khan, it was your sole
