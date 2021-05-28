@@ -23,5 +23,13 @@
     <iframe width="560" height="315" src="{{ chosen_movie['youtube_url'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     {% endif %}
+
+    {% if top_song_ids is not none %}
+    
+      {% for id in top_song_ids %}
+        <iframe src="https://open.spotify.com/embed/track/{{ id }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      {% endfor %}
+
+    {% endif %}
   </body>
 {% endblock %}
