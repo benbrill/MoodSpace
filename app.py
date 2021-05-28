@@ -155,11 +155,13 @@ def choose_movie_post():
     with open('static/assets/movie_data.json') as f:
         data = json.load(f)
 
-    top_tracks = spotify.current_user_top_tracks(limit=10, offset=0, time_range='long_term')
+    num_tracks = 10
+    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
 
     track_artist_name_pairs = {
-        "track_name": [top_tracks['items'][i]['name'] for i in range(10)],
-        "artists": [top_tracks['items'][i]['artists'][0]['name'] for i in range(10)]
+        "track_name": [top_tracks['items'][i]['name'] for i in range(num_tracks)],
+        "artists": [top_tracks['items'][i]['artists'][0]['name'] for i in range(num_tracks)],
+        "id": [top_tracks['items'][i]['id'] for i in range(num_tracks)],
         }
 
     def get_lyrics(X):
@@ -189,12 +191,12 @@ def choose_movie_post():
     df = df[df['language'] == 'en']
 
     weights = classification.main(df)
-    norms = np.linalg.norm(weights - np.array(data['chosen_movie']['weights']), axis = 1)
+    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1)
     ix = np.argsort(norms)
     sorted_df = df.iloc[ix]
-    top_3_songs = df.iloc[0:3]['track_names']
+    top_3_songs = df.iloc[0:3]['id']
     # df = pd.concat([df, pd.DataFrame(weights)], axis = 1)
-    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie])
+    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs)
 
 
 '''
