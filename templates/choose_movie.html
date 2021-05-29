@@ -2,6 +2,8 @@
 
 {% block content %}
 <body>
+  <div id="loading"></div>
+  <div id="content">
   <div class=choose-movie>
     <h1>{% block title %} Soundtrack Generator {% endblock %}</h1>
     <h2>To start, select a movie: </h2>
@@ -15,7 +17,7 @@
           {% endfor %}
         </select>
         <br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="loading();">
       </form>
     </div>
     {% if chosen_movie is not none %}
@@ -32,4 +34,13 @@
 
     {% endif %}
   </body>
+
+  <script type="text/javascript">// <![CDATA[
+    function loading(){
+        $("#loading").show();
+        $("#content").hide();       
+    }
+  // ]]></script>
 {% endblock %}
+</div>
+
