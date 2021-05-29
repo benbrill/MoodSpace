@@ -5,6 +5,24 @@ X . .
 . O O
 ```
 
+## Directions for serving locally
+
+1. Clone this repository to your local drive
+2. Create a virtual enviornment within the repository
+    1. install `vituralenv` following [these](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) instructions
+    2. Create a virtual enviornment for the repository by running the following in the command line:
+    ```
+    python3 -m venv env
+    ```
+3. Download necessary packages to virtual enviornment by running in the command line:
+```
+pip install -r requirements.txt
+```
+4. Serve app locally by running the following in the command line
+```
+python app.py
+```
+
 ## Abstract
 
 Often times, people don't like the soundtrack selections in movies. Well we have a solution for that! We want to create a website that looks at scenes of a movie or play and creates a customized soundtrack for that scene based on your own Spotify music tastes.
