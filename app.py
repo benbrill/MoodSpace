@@ -113,9 +113,9 @@ def currently_playing():
 
         genius_song = genius.search_song(song_title, artist_name)
         if genius_song is not None:
-            return render_template("CurrentlyPlaying.html", track=track, lyrics=genius_song.lyrics, classification=my_classification, song_title=song_title, artist_name=artist_name)
+            return render_template("CurrentlyPlaying.html", track=track, lyrics=genius_song.lyrics, song_title=song_title, artist_name=artist_name)
         else:
-            return render_template("CurrentlyPlaying.html", track=track, lyrics="Sorry, lyrics are not avaliable for this particular song", classification=my_classification, song_title=song_title, artist_name=artist_name)
+            return render_template("CurrentlyPlaying.html", track=track, lyrics="Sorry, lyrics are not avaliable for this particular song", song_title=song_title, artist_name=artist_name)
     return "No track currently playing."
 
 
