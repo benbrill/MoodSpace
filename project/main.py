@@ -1,5 +1,6 @@
 from flask import request, redirect, render_template, Blueprint
 import json
+import pandas as pd
 import numpy as np
 
 from . import db, genius, session_cache_path
