@@ -1,25 +1,14 @@
-import os
-from flask import Flask, session, request, redirect, render_template, Blueprint, url_for
-
-import spotipy
+from flask import request, redirect, render_template, Blueprint
 import json
-import re
 import numpy as np
-from flask_sqlalchemy import SQLAlchemy;
-from sqlalchemy.dialects.postgresql import ARRAY
-# from sqlalchemy import event, create_engine, inspect, DDL
 
-import lyricsgenius
-
-from . import db, session_cache_path
+from . import db, genius, session_cache_path
 from .models import Songs
-import pandas as pd
 from dotenv import load_dotenv
 
 load_dotenv();
 
-genius = lyricsgenius.Genius()
-
+import spotipy
 
 main = Blueprint('main', __name__)
 

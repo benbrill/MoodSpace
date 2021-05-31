@@ -8,3 +8,5 @@
 /.vscode
 .vscode/settings.json
 .cache
+.flask_session/
+.spotify_caches/
