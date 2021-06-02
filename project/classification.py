@@ -13,13 +13,12 @@ from sklearn.preprocessing import LabelEncoder
 # only the top distinct words will be tracked
 MAX_TOKENS = 2000
 
-# each headline will be a vector of length 25
 SEQUENCE_LENGTH = 500
 
 def create_model(max_tokens=None):
 
     model = tf.keras.Sequential([
-    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 3, name="embedding"),
+    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 10, name="embedding"),
     layers.Dropout(0.2),
     layers.GlobalAveragePooling1D(),
     layers.Dropout(0.2),
@@ -38,7 +37,7 @@ vectorize_layer = TextVectorization(
     output_mode='int',
     output_sequence_length=SEQUENCE_LENGTH) 
 
-def vectorize_headline(text):
+def vectorize_moviescript(text):
     text = tf.expand_dims(text, -1)
     return vectorize_layer(text)
 
@@ -49,6 +48,6 @@ def main(df):
 
     data = tf.data.Dataset.from_tensor_slices((df["lyrics"]))
 
-    data_vec = data.map(vectorize_headline)
+    data_vec = data.map(vectorize_moviescript)
 
     return model.predict(data_vec)
