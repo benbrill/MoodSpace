@@ -61,14 +61,14 @@ def index():
     top_artists = spotify.current_user_top_artists(limit=5, offset=0, time_range='long_term')
     # TODO: if someone has very few top things, going up to 6 doesn't work.
     # in the template, we should probably have a for loop and make this variable length somehow
-    artist_imgs = [top_artists['items'][i]['images'][0]['url'] for i in range(2)]
-    top_artists = [top_artists['items'][i]['name'] for i in range(2)]
+    artist_imgs = [top_artists['items'][i]['images'][0]['url'] for i in range(3)]
+    top_artists = [top_artists['items'][i]['name'] for i in range(3)]
 
 
     top_tracks = spotify.current_user_top_tracks(limit=6, offset=0, time_range='long_term')
-    top_track_names = [top_tracks['items'][i]['name'] for i in range(2)]
-    top_track_artist_names = [top_tracks['items'][i]['artists'][0]['name'] for i in range(2)]
-    top_track_imgs = [top_tracks['items'][i]['album']['images'][0]['url'] for i in range(2)]
+    top_track_names = [top_tracks['items'][i]['name'] for i in range(6)]
+    top_track_artist_names = [top_tracks['items'][i]['artists'][0]['name'] for i in range(6)]
+    top_track_imgs = [top_tracks['items'][i]['album']['images'][0]['url'] for i in range(6)]
 
 
     return render_template("Home.html", display_name=display_name, top_artists = top_artists, artist_imgs=artist_imgs, 
@@ -155,8 +155,8 @@ def choose_movie_post():
     with open('static/assets/movie_data.json') as f:
         data = json.load(f)
 
-    num_tracks = 10
-    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
+    num_tracks = 20
+    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=3, time_range='long_term')
 
     track_artist_name_pairs = {
         "track_name": [top_tracks['items'][i]['name'] for i in range(num_tracks)],
