@@ -8,6 +8,13 @@
         "name": "Star Trek",
         "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
         "weights": [ 0.5809208, 0.24919447, -0.14036848, 0.17545265,-0.02242547,0.33280563, -0.93502694, -5.101842  ]
+    },
+    "Shawshank Redemption": {
+        "name": "Shawshank Redemption",
+        "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
+        "weights": [ 0.2632618,   0.695708 ,  -0.36251104, -0.3661462,   0.03423746,  0.22549914,
+            -0.87146354, -4.03951   ]
     }
+
 
 }
