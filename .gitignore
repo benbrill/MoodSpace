@@ -1,9 +1,12 @@
-/.flask_session
-/.spotify_caches
+*/.flask_session
+*/.spotify_caches
 /venv
 .env
+*/__pycache__
 /__pycache__
 /env
 /.vscode
 .vscode/settings.json
 .cache
+.flask_session/
+.spotify_caches/
