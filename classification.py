@@ -49,8 +49,7 @@ def main(df):
     model = create_model()
 
     data = tf.data.Dataset.from_tensor_slices((df["lyrics"]))
-
+    vectorize_layer.adapt(data)
     data_vec = data.map(vectorize_movie_script)
-    # vectorize_layer.adapt(data_vec)
 
     return model.predict(data_vec)
