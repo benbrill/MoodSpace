@@ -33,9 +33,6 @@ def index():
         Songs.query.filter_by(user_id=spotify.me()["id"]).delete()
         db.session.commit()
 
-        num_tracks = 10
-        top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
-        process_user_songs(top_tracks, spotify.me()['id'])
         return redirect('/')
 
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
@@ -44,6 +41,11 @@ def index():
         return f'<h2><a href="{auth_url}">Sign in</a></h2>'
 
     # Step 4. Signed in, display data
+    auth_manager.get_access_token(request.args.get("code"))
+    spotify = spotipy.Spotify(auth_manager=auth_manager)
+    num_tracks = 10
+    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
+    process_user_songs(top_tracks, spotify.me()['id'])
     return redirect(url_for('main.profile'))
     
 @auth.route('/sign_out')
