@@ -51,17 +51,19 @@ def process_user_songs(top_tracks, my_user_id):
 
     # annoyingly there is no easy way to use df.to_sql to upsert, so we have to be a bit more manual
     # using 'on_conflict_do_update'
-    values = df.to_dict(orient="records")
+    # values = df.to_dict(orient="records")
 
-    stmt = insert(Songs).values(values)
-    stmt = stmt.on_conflict_do_update(
-        # Let's use the constraint name which was visible in the original posts error msg
-        index_elements=["user_id", "song_id"],
+    # stmt = insert(Songs).values(values)
+    # stmt = stmt.on_conflict_do_update(
+    #     # Let's use the constraint name which was visible in the original posts error msg
+    #     index_elements=["user_id", "song_id"],
 
-        # The columns that should be updated on conflict
-        set_={
-            "weights": stmt.excluded.weights
-        }
-    )
+    #     # The columns that should be updated on conflict
+    #     set_={
+    #         "weights": stmt.excluded.weights
+    #     }
+    # )
 
-    db.session.execute(stmt)
+    # db.session.execute(stmt)
+
+    df.to_sql(name='songs', con=db.engine, index=False, if_exists='append')

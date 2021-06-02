@@ -28,7 +28,7 @@ def create_model(max_tokens=None):
                 optimizer='adam', 
                 metrics=['accuracy'])
 
-    model.load_weights('./checkpoints/my_checkpoint')
+    model.load_weights('./checkpoints/my_checkpoint_10')
 
     return model
 
