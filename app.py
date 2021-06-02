@@ -155,8 +155,8 @@ def choose_movie_post():
     with open('static/assets/movie_data.json') as f:
         data = json.load(f)
 
-    num_tracks = 10
-    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
+    num_tracks = 20
+    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=3, time_range='long_term')
 
     track_artist_name_pairs = {
         "track_name": [top_tracks['items'][i]['name'] for i in range(num_tracks)],
