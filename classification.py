@@ -20,7 +20,7 @@ SEQUENCE_LENGTH = 500
 def create_model(max_tokens=None):
 
     model = tf.keras.Sequential([
-    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 10, name="embedding"),
+    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 3, name="embedding"),
     layers.Dropout(0.2),
     layers.GlobalAveragePooling1D(),
     layers.Dropout(0.2),
@@ -51,6 +51,6 @@ def main(df):
     data = tf.data.Dataset.from_tensor_slices((df["lyrics"]))
 
     data_vec = data.map(vectorize_movie_script)
-    vectorize_layer.adapt(data_vec)
+    # vectorize_layer.adapt(data_vec)
 
     return model.predict(data_vec)

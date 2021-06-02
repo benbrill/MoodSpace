@@ -194,7 +194,7 @@ def choose_movie_post():
     norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1)
     ix = np.argsort(norms)
     sorted_df = df.iloc[ix]
-    top_3_songs = df.iloc[0:3]['id']
+    top_3_songs = sorted_df.iloc[0:3]['id']
     # df = pd.concat([df, pd.DataFrame(weights)], axis = 1)
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs)
 
