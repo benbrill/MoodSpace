@@ -49,6 +49,9 @@ def process_user_songs(top_tracks, my_user_id):
     df['weights'] = weights.tolist()
     df = df.drop(['lyrics'], axis=1)
 
+    Songs.query.filter_by(user_id=my_user_id).delete()
+    db.session.commit()
+
     # annoyingly there is no easy way to use df.to_sql to upsert, so we have to be a bit more manual
     # using 'on_conflict_do_update'
     # values = df.to_dict(orient="records")
