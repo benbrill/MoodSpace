@@ -39,7 +39,7 @@ vectorize_layer = TextVectorization(
     output_mode='int',
     output_sequence_length=SEQUENCE_LENGTH) 
 
-def vectorize_headline(text):
+def vectorize_movie_script(text):
     text = tf.expand_dims(text, -1)
     return vectorize_layer(text)
 
@@ -50,6 +50,7 @@ def main(df):
 
     data = tf.data.Dataset.from_tensor_slices((df["lyrics"]))
 
-    data_vec = data.map(vectorize_headline)
+    data_vec = data.map(vectorize_movie_script)
+    vectorize_layer.adapt(data_vec)
 
     return model.predict(data_vec)
