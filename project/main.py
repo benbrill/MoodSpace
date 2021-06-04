@@ -3,9 +3,11 @@ import json
 import pandas as pd
 import numpy as np
 
-from . import db, genius, session_cache_path
-from .models import Songs
+# from . import db, genius, session_cache_path
+from . import genius, session_cache_path
+# from .models import Songs
 from dotenv import load_dotenv
+from .ml import process_user_songs
 
 load_dotenv();
 
@@ -113,7 +115,11 @@ def choose_movie_post():
         data = json.load(f)
 
     # retrieve user's songs and associated weights from db
-    df = pd.read_sql(db.session.query(Songs).filter(Songs.user_id == spotify.me()['id']).statement, db.engine)
+    # df = pd.read_sql(db.session.query(Songs).filter(Songs.user_id == spotify.me()['id']).statement, db.engine)
+    num_tracks = 50
+    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
+    df = process_user_songs(top_tracks, spotify.me()['id'])
+    
     weights = np.array(df['weights'].values.tolist())
     
     # calculate songs closest in weight to movie weights
