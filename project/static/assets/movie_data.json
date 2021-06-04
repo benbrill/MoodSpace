@@ -11,7 +11,7 @@
     },
     "Shawshank Redemption": {
         "name": "Shawshank Redemption",
-        "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
+        "youtube_url": "https://www.youtube.com/watch?v=8jRRZPGa3fU",
         "weights": [ 0.2632618,   0.695708 ,  -0.36251104, -0.3661462,   0.03423746,  0.22549914,
             -0.87146354, -4.03951   ]
     }
