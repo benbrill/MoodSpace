@@ -10,3 +10,4 @@ langdetect==1.0.9
 lyricsgenius==3.0.1
 python-dotenv==0.17.1
 scikit_learn==0.24.2
+psycopg2==2.8.6
