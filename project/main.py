@@ -101,6 +101,7 @@ def choose_movie():
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=None)
 
 @main.route('/choose_movie', methods=["POST"])
+
 def PlaylistID(display_name, playlist_name):
     playlist_id = ''
     playlists = spotipy.Spotify.user_playlists(display_name)
@@ -118,6 +119,7 @@ def choose_movie_post():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
+    display_name = spotify.me()["display_name"]
 
     # retrieve our metadata around the movie the user chose
     chosen_movie = request.form['movie_scene']
