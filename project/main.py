@@ -127,4 +127,12 @@ def choose_movie_post():
     ix = np.argsort(norms)
     sorted_df = df.iloc[ix]
     top_3_songs = sorted_df.iloc[0:3]['song_id']
-    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs)
+
+    #creates playlist with top songs
+    playlist_name = f"{display_name}'s Mood Playlist" 
+    spotify.user_playlist_create(display_name, name=playlist_name)
+    spotify.user_playlist_add_tracks(display_name, playlist_id, top_3_songs)
+
+    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs, playlist_id=playlist_id)
+
+    
