@@ -112,7 +112,6 @@ def choose_movie_post():
 
     playlist_name = f"{display_name}'s Mood Playlist" 
     
-    playlist_id = ''
     playlists = spotipy.Spotify.user_playlists(display_name)
     for playlist in playlists['items']:  # iterate through playlists I follow
         if playlist['name'] == playlist_name:  # filter for newly created playlist
