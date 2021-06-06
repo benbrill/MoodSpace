@@ -101,17 +101,6 @@ def choose_movie():
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=None)
 
 @main.route('/choose_movie', methods=["POST"])
-
-def PlaylistID(display_name, playlist_name):
-    playlist_id = ''
-    playlists = spotipy.Spotify.user_playlists(display_name)
-    for playlist in playlists['items']:  # iterate through playlists I follow
-        if playlist['name'] == playlist_name:  # filter for newly created playlist
-            playlist_id = playlist['id']
-    return playlist_id
-
-playlist_id = PlaylistID()
-
 def choose_movie_post():
     cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
     auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
@@ -120,6 +109,14 @@ def choose_movie_post():
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
+
+    playlist_name = f"{display_name}'s Mood Playlist" 
+    
+    playlist_id = ''
+    playlists = spotipy.Spotify.user_playlists(display_name)
+    for playlist in playlists['items']:  # iterate through playlists I follow
+        if playlist['name'] == playlist_name:  # filter for newly created playlist
+            playlist_id = playlist['id']
 
     # retrieve our metadata around the movie the user chose
     chosen_movie = request.form['movie_scene']
@@ -141,7 +138,6 @@ def choose_movie_post():
     top_3_songs = sorted_df.iloc[0:3]['song_id']
 
     #creates playlist with top songs
-    playlist_name = f"{display_name}'s Mood Playlist" 
     spotify.user_playlist_create(display_name, name=playlist_name)
     spotify.user_playlist_add_tracks(display_name, playlist_id, top_3_songs)
 
