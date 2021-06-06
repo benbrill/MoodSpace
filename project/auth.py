@@ -40,6 +40,7 @@ def index():
     num_tracks = 20
     top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
     process_user_songs(top_tracks, spotify.me()['id'])
+
     return redirect(url_for('main.profile'))
     
 @auth.route('/sign_out')
