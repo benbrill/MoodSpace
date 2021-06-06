@@ -101,6 +101,16 @@ def choose_movie():
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=None)
 
 @main.route('/choose_movie', methods=["POST"])
+def PlaylistID(display_name, playlist_name):
+    playlist_id = ''
+    playlists = spotipy.Spotify.user_playlists(display_name)
+    for playlist in playlists['items']:  # iterate through playlists I follow
+        if playlist['name'] == playlist_name:  # filter for newly created playlist
+            playlist_id = playlist['id']
+    return playlist_id
+
+playlist_id = PlaylistID()
+
 def choose_movie_post():
     cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
     auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
