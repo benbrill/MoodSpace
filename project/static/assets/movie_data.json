@@ -2,19 +2,53 @@
     "Star Wars": {
         "name": "Star Wars",
         "youtube_url": "https://www.youtube.com/embed/U1MnMA0TzGI",
-        "weights": [ 0.1899558, 0.7987493, -0.4137746, -0.49113056, 0.04731353, 0.20073612, -0.85679483, -3.7943552]
+        "weights": [ 0.55289084,  0.6170999,  -0.6333877,  -0.66357017,  0.25265342,  0.225401,
+            -0.9125025,  -4.9512897 ]
     },
     "Star Trek": {
         "name": "Star Trek",
         "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
-        "weights": [ 0.5809208, 0.24919447, -0.14036848, 0.17545265,-0.02242547,0.33280563, -0.93502694, -5.101842  ]
+        "weights": [ 1.2249178e+00, -1.7303288e-01, -8.8581192e-01, -2.0883307e-03,
+            -2.2639140e-02,  4.6894187e-01, -1.4066646e+00, -5.4672852e+00]
     },
     "Shawshank Redemption": {
         "name": "Shawshank Redemption",
         "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
         "weights": [ 0.2632618,   0.695708 ,  -0.36251104, -0.3661462,   0.03423746,  0.22549914,
             -0.87146354, -4.03951   ]
+    },
+    "Dead Poets Society" : {
+        "name": "Dead Poets Society",
+        "youtube_url": "https://www.youtube.com/watch?v=j64SctPKmqk",
+        "weights": [1.1206332,  -0.18021777, -1.0099351,  -0.4571914,   0.6731483,   0.242694,
+            -1.1417143,  -5.3934536 ]
+    },
+    "The Bourne Ultimatum" : {
+        "name": "The Bourne Ultimatum",
+        "youtube_url": "https://www.youtube.com/watch?v=3TmzG_fqqU8",
+        "weights": [ 0.9299726,  -0.35914177, -0.51114357,  0.6295208,  -0.2103733,   0.35397047,
+            -1.3569529,  -5.057942  ]
+    },
+    "The Fellowship of the Ring" : {
+        "name": "The Fellowship of the Ring",
+        "youtube_url": "https://www.youtube.com/watch?v=JSxo579azeI",
+        "weights": [  0.56383485,  0.48283023, -0.6405089,  -0.9706365,   0.13684525,  0.7688268,
+            -0.89722323, -5.0171576 ]
+    },
+    "Forrest Gump": {
+        "name": "Forrest Gump",
+        "youtube_url": "https://www.youtube.com/watch?v=egkrxkiUnoo",
+        "weights": [0.97529155, -0.35290605, -0.54496884,  0.5175109,  -0.19030924,  0.40814745,
+            -1.3905873,  -5.1944103  ]
+    }, 
+    "Good Will Hunting": {
+        "name": "Forrest Gump",
+        "youtube_url": "https://www.youtube.com/watch?v=egkrxkiUnoo",
+        "weights": [ 0.7703525,  -0.09797597,  0.02146828,  0.5375512,  -0.05771305,  0.38985664,
+            -0.9446568,  -5.449433  ]
     }
+
+
 
 
 }
