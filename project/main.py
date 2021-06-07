@@ -112,7 +112,8 @@ def choose_movie_post():
 
     playlist_name = f"{display_name}'s Mood Playlist" 
     
-    playlists = spotipy.Spotify.user_playlists(display_name)
+    # playlists = spotipy.Spotify.user_playlists(display_name)
+    playlists = spotify.current_user_playlists()
     for playlist in playlists['items']:  # iterate through playlists I follow
         if playlist['name'] == playlist_name:  # filter for newly created playlist
             playlist_id = playlist['id']
@@ -137,8 +138,8 @@ def choose_movie_post():
     top_3_songs = sorted_df.iloc[0:3]['song_id']
 
     #creates playlist with top songs
-    spotify.user_playlist_create(user=display_name, name=playlist_name)
-    spotify.user_playlist_add_tracks(user=display_name, playlist_id=playlist_id, tracks=top_3_songs)
+    spotify.user_playlist_create(user=spotify.me()["id"], name=playlist_name)
+    spotify.user_playlist_add_tracks(user=spotify.me()["id"], playlist_id=playlist_id, tracks=top_3_songs)
 
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs, playlist_id=playlist_id)
 
