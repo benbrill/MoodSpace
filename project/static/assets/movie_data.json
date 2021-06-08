@@ -2,19 +2,61 @@
     "Star Wars": {
         "name": "Star Wars",
         "youtube_url": "https://www.youtube.com/embed/U1MnMA0TzGI",
-        "weights": [ 0.1899558, 0.7987493, -0.4137746, -0.49113056, 0.04731353, 0.20073612, -0.85679483, -3.7943552]
+        "weights": [ 0.5676284 ,  1.2058978 , -0.2627478 , -1.1515511 , -1.1492127 ,
+            -0.53111666, -2.7649083 , -5.876196  ]
     },
     "Star Trek": {
         "name": "Star Trek",
         "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
-        "weights": [ 0.5809208, 0.24919447, -0.14036848, 0.17545265,-0.02242547,0.33280563, -0.93502694, -5.101842  ]
+        "weights": [ 0.745964  , -0.13054618,  0.11489633, -1.0392745 , -0.4346859 ,
+            0.51892954, -2.2972257 , -5.37253   ]
     },
     "Shawshank Redemption": {
         "name": "Shawshank Redemption",
-        "youtube_url": "https://www.youtube.com/watch?v=8jRRZPGa3fU",
-        "weights": [ 0.2632618,   0.695708 ,  -0.36251104, -0.3661462,   0.03423746,  0.22549914,
-            -0.87146354, -4.03951   ]
+        "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
+        "weights": [-0.80076295,  1.2794873 ,  0.34279975, -1.1230642 , -1.2350041 ,
+            0.11890902, -2.3969839 , -5.6252737 ]
+    },
+    "Dead Poets Society" : {
+        "name": "Dead Poets Society",
+        "youtube_url": "https://www.youtube.com/embed/j64SctPKmqk",
+        "weights": [-1.7333281 ,  0.5443739 ,  1.4926052 , -1.312813  , -1.9460292 ,
+            0.8860587 , -0.69746614, -4.9762983 ]
+    },
+    "The Bourne Ultimatum" : {
+        "name": "The Bourne Ultimatum",
+        "youtube_url": "https://www.youtube.com/embed/3TmzG_fqqU8",
+        "weights": [ 0.1857727 , -0.70903105,  0.42797962, -0.03703333, -0.23253712,
+            0.44204602, -1.3601608 , -4.934482  ]
+    },
+    "The Fellowship of the Ring" : {
+        "name": "The Fellowship of the Ring",
+        "youtube_url": "https://www.youtube.com/embed/JSxo579azeI",
+        "weights": [-1.6093009 ,  0.91127765, -0.7827016 ,  0.51166475,  0.3851266 ,
+            -0.86100215, -1.2381443 , -5.4872737 ]
+    },
+    "Forrest Gump": {
+        "name": "Forrest Gump",
+        "youtube_url": "https://www.youtube.com/embed/egkrxkiUnoo",
+        "weights": [ 2.7013892e-01, -7.4422103e-01,  3.7579489e-01, -2.4289940e-01,
+            -1.4102459e-03,  5.6090569e-01, -1.5939732e+00, -4.9245977e+00]
+    }, 
+    "Good Will Hunting": {
+        "name": "Good Will Hunting",
+        "youtube_url": "https://www.youtube.com/embed/oRG2jlQWCsY",
+        "weights": [-0.46705815,  2.3599677 , -0.41788223, -2.4510686 , -2.2347584 ,
+            0.890132  , -1.8238227 , -5.6453047 ]
+    },
+    "The Incredibles": {
+        "name": "The Incredibles",
+        "youtube_url": "https://www.youtube.com/embed/GYmHYQPaHaw",
+        "weights": [ 0.15989065, -1.9651154 ,  0.7284904 ,  0.97542316,  0.11404774,
+            0.60787   , -1.0682911 , -4.7816663 ]
+    },
+    "Titanic": {
+        "name": "Titanic",
+        "youtube_url": "https://www.youtube.com/embed/SvZ54i2Hd2A",
+        "weights": [ 0.448355 ,  0.5325455,  0.0066276, -1.6959094, -1.4742285,
+            1.1439179, -2.4554396, -5.7488704]
     }
-
-
 }
