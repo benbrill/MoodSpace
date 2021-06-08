@@ -15,37 +15,49 @@
         "name": "Shawshank Redemption",
         "youtube_url": "https://www.youtube.com/embed/e7X01_j_oDA",
         "weights": [ 0.2632618,   0.695708 ,  -0.36251104, -0.3661462,   0.03423746,  0.22549914,
-            -0.87146354, -4.03951   ]
+            -0.87146354, -4.03951]
     },
     "Dead Poets Society" : {
         "name": "Dead Poets Society",
-        "youtube_url": "https://www.youtube.com/watch?v=j64SctPKmqk",
+        "youtube_url": "https://www.youtube.com/embed/j64SctPKmqk",
         "weights": [1.1206332,  -0.18021777, -1.0099351,  -0.4571914,   0.6731483,   0.242694,
-            -1.1417143,  -5.3934536 ]
+            -1.1417143,  -5.3934536]
     },
     "The Bourne Ultimatum" : {
         "name": "The Bourne Ultimatum",
-        "youtube_url": "https://www.youtube.com/watch?v=3TmzG_fqqU8",
+        "youtube_url": "https://www.youtube.com/embed/3TmzG_fqqU8",
         "weights": [ 0.9299726,  -0.35914177, -0.51114357,  0.6295208,  -0.2103733,   0.35397047,
-            -1.3569529,  -5.057942  ]
+            -1.3569529,  -5.057942]
     },
     "The Fellowship of the Ring" : {
         "name": "The Fellowship of the Ring",
-        "youtube_url": "https://www.youtube.com/watch?v=JSxo579azeI",
+        "youtube_url": "https://www.youtube.com/embed/JSxo579azeI",
         "weights": [  0.56383485,  0.48283023, -0.6405089,  -0.9706365,   0.13684525,  0.7688268,
-            -0.89722323, -5.0171576 ]
+            -0.89722323, -5.0171576]
     },
     "Forrest Gump": {
         "name": "Forrest Gump",
-        "youtube_url": "https://www.youtube.com/watch?v=egkrxkiUnoo",
+        "youtube_url": "https://www.youtube.com/embed/egkrxkiUnoo",
         "weights": [0.97529155, -0.35290605, -0.54496884,  0.5175109,  -0.19030924,  0.40814745,
-            -1.3905873,  -5.1944103  ]
+            -1.3905873,  -5.1944103]
     }, 
     "Good Will Hunting": {
-        "name": "Forrest Gump",
-        "youtube_url": "https://www.youtube.com/watch?v=egkrxkiUnoo",
-        "weights": [ 0.7703525,  -0.09797597,  0.02146828,  0.5375512,  -0.05771305,  0.38985664,
-            -0.9446568,  -5.449433  ]
+        "name": "Good Will Hunting",
+        "youtube_url": "https://www.youtube.com/embed/oRG2jlQWCsY",
+        "weights": [ 0.88102204,  0.0620276,  -0.5795678,  -0.5689312,   0.27152842,  0.4087851,
+            -1.0932559,  -5.0554924]
+    },
+    "The Incredibles": {
+        "name": "The Incredibles",
+        "youtube_url": "https://www.youtube.com/embed/GYmHYQPaHaw",
+        "weights": [ 0.88102204,  0.0620276,  -0.5795678,  -0.5689312,   0.27152842,  0.4087851,
+            -1.0932559,  -5.0554924]
+    },
+    "Titanic": {
+        "name": "Titanic",
+        "youtube_url": "https://www.youtube.com/embed/SvZ54i2Hd2A",
+        "weights": [1.5576198,  -0.15229148, -1.2069032,  -0.24095187,  0.08767056,  0.49161577,
+            -1.6315897,  -6.037362]
     }
 
 
