@@ -128,7 +128,7 @@ def choose_movie_post():
     # retrieve user's songs and associated weights from db
     # df = pd.read_sql(db.session.query(Songs).filter(Songs.user_id == spotify.me()['id']).statement, db.engine)
     num_tracks = 50
-    offset = random.choice(string.digits)
+    offset = random.choice(range(50))
     top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=offset, time_range='long_term')
     df = process_user_songs(top_tracks, spotify.me()['id'])
     
