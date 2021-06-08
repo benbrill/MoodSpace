@@ -1,14 +1,11 @@
 import pandas as pd
 import re
 
-# from sqlalchemy.dialects.postgresql import insert
-
 from langdetect import detect
 
-# from . import db, genius
-from . import genius
+from . import db, genius
 from . import classification
-# from .models import Songs
+from .models import Songs
 
 
 def process_user_songs(top_tracks, my_user_id):
@@ -52,10 +49,8 @@ def process_user_songs(top_tracks, my_user_id):
     df['weights'] = weights.tolist()
     df = df.drop(['lyrics'], axis=1)
 
-    # Songs.query.filter_by(user_id=my_user_id).delete()
-    # db.session.commit()
+    Songs.query.filter_by(user_id=my_user_id).delete()
+    db.session.commit()
 
 
-    # df.to_sql(name='songs', con=db.engine, index=False, if_exists='append')
-
-    return df
+    df.to_sql(name='songs', con=db.engine, index=False, if_exists='append')

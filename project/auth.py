@@ -6,9 +6,8 @@ import spotipy
 from dotenv import load_dotenv
 load_dotenv();
 
-# from . import db, session_cache_path
-from . import session_cache_path
-# from .models import Songs
+from . import db, session_cache_path
+from .models import Songs
 from .ml import process_user_songs
 
 auth = Blueprint('auth', __name__)
@@ -39,7 +38,7 @@ def index():
     # Step 4. Signed in, display data
     auth_manager.get_access_token(request.args.get("code"))
     spotify = spotipy.Spotify(auth_manager=auth_manager)
-    num_tracks = 20
+    num_tracks = 50
     top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
     process_user_songs(top_tracks, spotify.me()['id'])
     return redirect(url_for('main.profile'))

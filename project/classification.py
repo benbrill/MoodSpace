@@ -1,8 +1,6 @@
-
 import tensorflow as tf
 
 from tensorflow.keras import layers
-from tensorflow.keras import losses
 from tensorflow import keras
 
 from tensorflow.keras.layers.experimental.preprocessing import TextVectorization

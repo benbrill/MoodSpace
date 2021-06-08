@@ -1,11 +1,11 @@
 from flask import Flask, session
 from flask_session import Session
-# from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 import lyricsgenius
 import os
 
-# db = SQLAlchemy()
+db = SQLAlchemy()
 genius = lyricsgenius.Genius()
 
 caches_folder = './.spotify_caches/'
@@ -25,7 +25,7 @@ def create_app():
     DATABASE_URL = os.getenv("DATABASE_URL")
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
-    # db.init_app(app)
+    db.init_app(app)
 
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['SESSION_FILE_DIR'] = './.flask_session/'
