@@ -17,7 +17,11 @@
           {% endfor %}
         </select>
         <br><br>
-        <input type="submit" value="Submit" onclick="loading();">
+        <input type="submit" value="Submit" onclick="spinner();">
+        <div class="loader">
+          <div class="loading">
+          </div>
+        </div>
       </form>
     </div>
     {% if chosen_movie is not none %}
@@ -38,12 +42,17 @@
     {% endif %}
   </body>
 
-  <script type="text/javascript">// <![CDATA[
+  <!-- <script type="text/javascript">// <![CDATA[
     function loading(){
         $("#loading").show();
         $("#content").hide();       
     }
-  // ]]></script>
+  // ]]></script> -->
+<script type="text/javascript">
+    function spinner() {
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    }
+</script>  
 {% endblock %}
 </div>
 
