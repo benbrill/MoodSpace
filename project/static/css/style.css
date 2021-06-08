@@ -381,14 +381,6 @@ body {
     cursor: pointer;
 }
 
-/* div#loading {
-    width: 35px;
-    height: 35px;
-    display: none;
-    background: url(/static/assets/ajax-loader.gif) no-repeat;
-    cursor: wait;
-    } */
-
     .loader {
         display: none;
         top: 50%;

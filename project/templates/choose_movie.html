@@ -25,14 +25,21 @@
       </form>
     </div>
     {% if chosen_movie is not none %}
-    
+    <br>
+    <br>
     <iframe width="560" height="315" src="{{ chosen_movie['youtube_url'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <br>
     {% endif %}
 
     {% if top_song_ids is not none %}
+    <br>
+    <div class="choose-movie">
+      <h2>
+        Your Personalized Soundtrack:
+      </h1>
+    </div>
     
-      {% for id in top_song_ids %}
+      {% for id in top_song_ids %}    
         <iframe src="https://open.spotify.com/embed/track/{{ id }}" width="200" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       {% endfor %}
       <!-- <iframe src="https://open.spotify.com/embed/playlist/{{ playlist_id }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
@@ -42,12 +49,6 @@
     {% endif %}
   </body>
 
-  <!-- <script type="text/javascript">// <![CDATA[
-    function loading(){
-        $("#loading").show();
-        $("#content").hide();       
-    }
-  // ]]></script> -->
 <script type="text/javascript">
     function spinner() {
         document.getElementsByClassName("loader")[0].style.display = "block";
