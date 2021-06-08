@@ -18,7 +18,7 @@ SEQUENCE_LENGTH = 500
 def create_model(max_tokens=None):
 
     model = tf.keras.Sequential([
-    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 10, name="embedding"),
+    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 30, name="embedding"),
     layers.Dropout(0.2),
     layers.GlobalAveragePooling1D(),
     layers.Dropout(0.2),
@@ -28,7 +28,7 @@ def create_model(max_tokens=None):
                 optimizer='adam', 
                 metrics=['accuracy'])
 
-    model.load_weights('./checkpoints/my_checkpoint_10')
+    model.load_weights('./checkpoints/my_checkpoint_20')
 
     return model
 
