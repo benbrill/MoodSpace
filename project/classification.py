@@ -3,13 +3,9 @@ import tensorflow as tf
 
 from tensorflow.keras import layers
 from tensorflow.keras import losses
+from tensorflow import keras
 
 from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
-from tensorflow.keras.layers.experimental.preprocessing import StringLookup
-
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-
 # only the top distinct words will be tracked
 MAX_TOKENS = 2000
 
@@ -17,18 +13,24 @@ SEQUENCE_LENGTH = 500
 
 def create_model(max_tokens=None):
 
-    model = tf.keras.Sequential([
-    layers.Embedding(max_tokens or MAX_TOKENS, output_dim = 10, name="embedding"),
-    layers.Dropout(0.2),
-    layers.GlobalAveragePooling1D(),
-    layers.Dropout(0.2),
-    layers.Dense(8)]
+    lyrics_input = keras.Input(
+        shape = (500,), 
+        name = "lyrics",
+        dtype = "int32"
     )
-    model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=True),
-                optimizer='adam', 
-                metrics=['accuracy'])
-
-    model.load_weights('./checkpoints/my_checkpoint_10')
+    lyrics_features = layers.Embedding(max_tokens or MAX_TOKENS, 60, name = "embedding")(lyrics_input)
+    lyrics_features = layers.Dropout(0.2)(lyrics_features)
+    lyrics_features = layers.Conv1D(64, 5, activation='relu')(lyrics_features)
+    lyrics_features = layers.MaxPooling1D(pool_size=4)(lyrics_features)
+    lyrics_features = layers.LSTM(100)(lyrics_features)
+    lyrics_features = layers.Dropout(0.2)(lyrics_features)
+    lyrics_features = layers.Dense(64, activation='relu')(lyrics_features)
+    lyrics_features = layers.Dense(32, activation='relu')(lyrics_features)
+    output = layers.Dense(4, name = "energy")(lyrics_features)
+    model = keras.Model(inputs=lyrics_input, outputs=[output])
+    model.compile(loss='mae',
+              optimizer='adam',)
+    model.load_weights('./checkpoints/my_checkpoint_30')
 
     return model
 
@@ -46,8 +48,7 @@ def vectorize_moviescript(text):
 def main(df):
     model = create_model()
 
-    data = tf.data.Dataset.from_tensor_slices((df["lyrics"]))
-    vectorize_layer.adapt(data)
-    data_vec = data.map(vectorize_moviescript)
+    vectorize_layer.adapt(df["lyrics"].to_numpy())
+    X = vectorize_layer(df["lyrics"])
 
-    return model.predict(data_vec)
+    return model.predict(X)

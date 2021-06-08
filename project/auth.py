@@ -6,8 +6,9 @@ import spotipy
 from dotenv import load_dotenv
 load_dotenv();
 
-from . import db, session_cache_path
-from .models import Songs
+# from . import db, session_cache_path
+from . import session_cache_path
+# from .models import Songs
 from .ml import process_user_songs
 
 auth = Blueprint('auth', __name__)
@@ -20,7 +21,8 @@ def index():
         session['uuid'] = str(uuid.uuid4())
 
     cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
-    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private user-top-read',
+
+    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-public user-library-read  user-top-read',
                                                 cache_handler=cache_handler, 
                                                 show_dialog=True)
 
@@ -40,7 +42,6 @@ def index():
     num_tracks = 20
     top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=0, time_range='long_term')
     process_user_songs(top_tracks, spotify.me()['id'])
-
     return redirect(url_for('main.profile'))
     
 @auth.route('/sign_out')

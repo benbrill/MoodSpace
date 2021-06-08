@@ -2,10 +2,14 @@ from flask import request, redirect, render_template, Blueprint
 import json
 import pandas as pd
 import numpy as np
+import string
+import random
 
-from . import db, genius, session_cache_path
-from .models import Songs
+# from . import db, genius, session_cache_path
+from . import genius, session_cache_path
+# from .models import Songs
 from dotenv import load_dotenv
+from .ml import process_user_songs
 
 load_dotenv();
 
@@ -108,24 +112,39 @@ def choose_movie_post():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
 
+    # playlist_name = f"{display_name}'s Mood Playlist" 
+    
+    # # playlists = spotipy.Spotify.user_playlists(display_name)
+    # playlists = spotify.current_user_playlists()
+    # for playlist in playlists['items']:  # iterate through playlists I follow
+    #     if playlist['name'] == playlist_name:  # filter for newly created playlist
+    #         playlist_id = playlist['id']
+
     # retrieve our metadata around the movie the user chose
     chosen_movie = request.form['movie_scene']
     with open('project/static/assets/movie_data.json') as f:
         data = json.load(f)
 
     # retrieve user's songs and associated weights from db
-    df = pd.read_sql(db.session.query(Songs).filter(Songs.user_id == spotify.me()['id']).statement, db.engine)
+    # df = pd.read_sql(db.session.query(Songs).filter(Songs.user_id == spotify.me()['id']).statement, db.engine)
+    num_tracks = 50
+    # offset = random.choice(range(50))
+    offset = 2
+
+
+    top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=offset, time_range='long_term')
+    df = process_user_songs(top_tracks, spotify.me()['id'])
+
     weights = np.array(df['weights'].values.tolist())
-    
     # calculate songs closest in weight to movie weights
-    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1)
+    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1,)
     ix = np.argsort(norms)
     sorted_df = df.iloc[ix]
     top_3_songs = sorted_df.iloc[0:3]['song_id']
 
     #creates playlist with top songs
-    # playlist_name = f"{display_name}'s Mood Playlist" 
-    # spotify.user_playlist_create(display_name, name=playlist_name)
-    # spotify.user_playlist_add_tracks(display_name, playlist_id, top_3_songs)
+    # spotify.user_playlist_create(user=spotify.me()["id"], name=playlist_name)
+    # spotify.user_playlist_add_tracks(user=spotify.me()["id"], playlist_id=playlist_id, tracks=top_3_songs)
 
+    #return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs, playlist_id=playlist_id)
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs)

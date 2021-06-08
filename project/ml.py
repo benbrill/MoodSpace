@@ -1,13 +1,14 @@
 import pandas as pd
 import re
 
-from sqlalchemy.dialects.postgresql import insert
+# from sqlalchemy.dialects.postgresql import insert
 
 from langdetect import detect
 
-from . import db, genius
+# from . import db, genius
+from . import genius
 from . import classification
-from .models import Songs
+# from .models import Songs
 
 
 def process_user_songs(top_tracks, my_user_id):
@@ -51,24 +52,10 @@ def process_user_songs(top_tracks, my_user_id):
     df['weights'] = weights.tolist()
     df = df.drop(['lyrics'], axis=1)
 
-    Songs.query.filter_by(user_id=my_user_id).delete()
-    db.session.commit()
+    # Songs.query.filter_by(user_id=my_user_id).delete()
+    # db.session.commit()
 
-    # annoyingly there is no easy way to use df.to_sql to upsert, so we have to be a bit more manual
-    # using 'on_conflict_do_update'
-    # values = df.to_dict(orient="records")
 
-    # stmt = insert(Songs).values(values)
-    # stmt = stmt.on_conflict_do_update(
-    #     # Let's use the constraint name which was visible in the original posts error msg
-    #     index_elements=["user_id", "song_id"],
+    # df.to_sql(name='songs', con=db.engine, index=False, if_exists='append')
 
-    #     # The columns that should be updated on conflict
-    #     set_={
-    #         "weights": stmt.excluded.weights
-    #     }
-    # )
-
-    # db.session.execute(stmt)
-
-    df.to_sql(name='songs', con=db.engine, index=False, if_exists='append')
+    return df

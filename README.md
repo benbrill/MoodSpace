@@ -25,7 +25,6 @@ python app.py
 ```
 
 ## Limitations
-
 - Number of movie scripts being analyzed is limited
 - Creating a custom Spotify playlist involves having acccess to and managing a user's Spotify account, and this could raise privacy issues.
     - Spotify playlist creation functionality is currently disabled. Songs are individually embedded into the website.
