@@ -21,7 +21,7 @@ def index():
 
     cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
 
-    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-public user-library-read  user-top-read',
+    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-public user-top-read',
                                                 cache_handler=cache_handler, 
                                                 show_dialog=True)
 
