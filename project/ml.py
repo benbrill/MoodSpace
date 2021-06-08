@@ -7,7 +7,7 @@ from langdetect import detect
 
 # from . import db, genius
 from . import genius
-from . import classification_2
+from . import classification
 # from .models import Songs
 
 
@@ -45,7 +45,7 @@ def process_user_songs(top_tracks, my_user_id):
     df['lyrics'] = df['lyrics'].apply(stringProcessing)
     df['language'] = df['lyrics'].apply(detect)
     df = df[df['language'] == 'en']
-    weights = classification_2.main(df)
+    weights = classification.main(df)
 
     df['user_id'] = my_user_id
     df['weights'] = weights.tolist()
