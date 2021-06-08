@@ -381,6 +381,19 @@ body {
     cursor: pointer;
 }
 
+.youtube-player{
+    border: none;
+    padding: 0px;
+    margin-bottom: 25px;
+    border-radius: 30px;
+    }
+.spotify-player{
+    border: none;
+    padding: 0px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+}
+
     .loader {
         display: none;
         top: 50%;

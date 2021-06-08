@@ -27,7 +27,7 @@
     {% if chosen_movie is not none %}
     <br>
     <br>
-    <iframe width="560" height="315" src="{{ chosen_movie['youtube_url'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="youtube-player" width="560" height="315" src="{{ chosen_movie['youtube_url'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <br>
     {% endif %}
 
@@ -39,8 +39,9 @@
       </h1>
     </div>
     
-      {% for id in top_song_ids %}    
-        <iframe src="https://open.spotify.com/embed/track/{{ id }}" width="200" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      {% for id in top_song_ids %}  
+      <br>  
+        <iframe class="spotify-player" src="https://open.spotify.com/embed/track/{{ id }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       {% endfor %}
       <!-- <iframe src="https://open.spotify.com/embed/playlist/{{ playlist_id }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
 
