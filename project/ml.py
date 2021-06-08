@@ -14,6 +14,7 @@ from . import classification
 def process_user_songs(top_tracks, my_user_id):
 
     num_tracks = len(top_tracks['items'])
+
     track_artist_name_pairs = {
         "track_name": [top_tracks['items'][i]['name'] for i in range(num_tracks)],
         "artists": [top_tracks['items'][i]['artists'][0]['name'] for i in range(num_tracks)],

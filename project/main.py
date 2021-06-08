@@ -147,5 +147,4 @@ def choose_movie_post():
     # spotify.user_playlist_add_tracks(user=spotify.me()["id"], playlist_id=playlist_id, tracks=top_3_songs)
 
     #return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs, playlist_id=playlist_id)
-    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs,)
-    
+    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs)
