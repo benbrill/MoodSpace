@@ -2,8 +2,7 @@
     "Star Wars": {
         "name": "Star Wars",
         "youtube_url": "https://www.youtube.com/embed/U1MnMA0TzGI",
-        "weights": [ 0.5676284 ,  1.2058978 , -0.2627478 , -1.1515511 , -1.1492127 ,
-            -0.53111666, -2.7649083 , -5.876196  ]
+        "weights": [  0.7981779,    0.5339753,  110.80746,      0.15427852]
     },
     "Star Trek": {
         "name": "Star Trek",
@@ -20,8 +19,7 @@
     "Dead Poets Society" : {
         "name": "Dead Poets Society",
         "youtube_url": "https://www.youtube.com/embed/j64SctPKmqk",
-        "weights": [-1.7333281 ,  0.5443739 ,  1.4926052 , -1.312813  , -1.9460292 ,
-            0.8860587 , -0.69746614, -4.9762983 ]
+        "weights": [  0.91196984,   0.58987993, 151.97827,      0.16713756]
     },
     "The Bourne Ultimatum" : {
         "name": "The Bourne Ultimatum",

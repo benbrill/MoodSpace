@@ -128,14 +128,16 @@ def choose_movie_post():
     # retrieve user's songs and associated weights from db
     # df = pd.read_sql(db.session.query(Songs).filter(Songs.user_id == spotify.me()['id']).statement, db.engine)
     num_tracks = 50
-    offset = random.choice(range(50))
+    # offset = random.choice(range(50))
+    offset = 2
+
+
     top_tracks = spotify.current_user_top_tracks(limit=num_tracks, offset=offset, time_range='long_term')
     df = process_user_songs(top_tracks, spotify.me()['id'])
-    
+
     weights = np.array(df['weights'].values.tolist())
-    
     # calculate songs closest in weight to movie weights
-    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1)
+    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1,)
     ix = np.argsort(norms)
     sorted_df = df.iloc[ix]
     top_3_songs = sorted_df.iloc[0:3]['song_id']
@@ -146,5 +148,4 @@ def choose_movie_post():
 
     #return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs, playlist_id=playlist_id)
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs,)
-
     
