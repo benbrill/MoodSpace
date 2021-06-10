@@ -76,6 +76,12 @@ The embedding layer takes an input of a vector representing a tokenized string a
 #### Dropout Layer
 These layers are placed at various locations in the model to "dropout" some of the connecting neurons within the network, to prevent overfitting.
 
+#### Conv1D and MaxPooling1D
+These layers make use of kernels to convolve or pool the shape of the input tensor into a more appropriate 1-D format for later layers to process
+
+#### LSTM
+This layer makes use of Long and Short Term Memory (what LSTM stands for) to assign weights. These types of Recurrent Layers are typically used in sequential data, like text or song lyrics. 
+
 ### Model Training
 
 We trained our model on a random set of songs in the Spotify API who had English lyrics on Genuis API. The target was set as the Spotify Metrics `energy`, `valence`, `tempo`, and `liveness`. These were the results of our final epochs in fitting the model. 
