@@ -4,7 +4,11 @@
 
 MoodSpace is a webapp that not only generates a comprehensive take on a user’s Spotify music tastes, but it also creates a customized playlist of songs to a user’s favorite movie. Using machine learning to pair song and movie moods, our Soundtrack Generator is able to analyze and curate a customized soundtrack playlist to the mood of your favorite film. 
 
-Our app is designed for active Spotify users and movie lovers looking to discover how their music tastes match their favorite movies. To try it, see directions below.
+Our app is designed for active Spotify users and movie lovers looking to discover how their music tastes match their favorite movies.
+
+This app can be accessed online or be run locally. 
+ -  To access online, visit [this link](https://pic16-spotify.herokuapp.com/) (or https://pic16-spotify.herokuapp.com/). Please note that the app may take a while to load
+ -  To run the app locally, follow instructions below.
 
 ## Directions for serving locally
 
@@ -14,6 +18,10 @@ Our app is designed for active Spotify users and movie lovers looking to discove
     2. Create a virtual enviornment for the repository by running the following in the command line:
     ```
     python3 -m venv env
+    ```
+    3. Activate the virtual enviornment by running the following in the command line:
+    ```cmd
+    .\env\Scripts\activate
     ```
 3. Download necessary packages to virtual enviornment by running in the command line:
 ```
@@ -53,6 +61,7 @@ With this in mind, we can now develop an idea of what the inputs and outputs of 
 ### Model Details
 
 We implemented the above model infastructure using a `tensorflow.keras` neural network. Prior to actually inputing the text into the model, it must be vectorized, using the tensorflow `TextVectorization` function, which returns a vector that represents the words contained within a given song or screenplay in a tokenized form. Once this is complete, we can feed this tokenized vector into our neural network. An outline of our model's structure is shown below.
+
 ![A depection of our neural network's structure](project/static/assets/model_arch.png)
 
 Let's highlight a couple of key features of this model.
@@ -68,15 +77,15 @@ These layers are placed at various locations in the model to "dropout" some of t
 We trained our model on a random set of songs in the Spotify API who had English lyrics on Genuis API. The target was set as the Spotify Metrics `energy`, `valence`, `tempo`, and `liveness`. These were the results of our final epochs in fitting the model. 
 ```
 Epoch 96/100
-20/20 [==============================] - 0s 18ms/step - loss: 3.0470 - root_mean_squared_error: 8.1394 - msle: 0.0215 - val_loss: 6.6334 - val_root_mean_squared_error: 16.1454 - val_msle: 0.0440
+20/20 [==============================] - 4s 220ms/step - loss: 2.9242 - root_mean_squared_error: 7.9613 - msle: 0.0210 - val_loss: 5.9375 - val_root_mean_squared_error: 15.3059 - val_msle: 0.0325
 Epoch 97/100
-20/20 [==============================] - 0s 17ms/step - loss: 2.8837 - root_mean_squared_error: 7.5734 - msle: 0.0235 - val_loss: 6.6817 - val_root_mean_squared_error: 16.3202 - val_msle: 0.0332
+20/20 [==============================] - 4s 220ms/step - loss: 2.9864 - root_mean_squared_error: 8.0015 - msle: 0.0205 - val_loss: 6.0919 - val_root_mean_squared_error: 15.4481 - val_msle: 0.0317
 Epoch 98/100
-20/20 [==============================] - 0s 18ms/step - loss: 2.9758 - root_mean_squared_error: 7.7834 - msle: 0.0195 - val_loss: 6.6687 - val_root_mean_squared_error: 16.2802 - val_msle: 0.0413
+20/20 [==============================] - 6s 281ms/step - loss: 3.0456 - root_mean_squared_error: 8.0510 - msle: 0.0215 - val_loss: 6.1032 - val_root_mean_squared_error: 15.4863 - val_msle: 0.0328
 Epoch 99/100
-20/20 [==============================] - 0s 18ms/step - loss: 2.9249 - root_mean_squared_error: 7.6847 - msle: 0.0204 - val_loss: 6.7425 - val_root_mean_squared_error: 16.6854 - val_msle: 0.0343
+20/20 [==============================] - 5s 257ms/step - loss: 3.1289 - root_mean_squared_error: 8.1052 - msle: 0.0218 - val_loss: 6.0257 - val_root_mean_squared_error: 15.4292 - val_msle: 0.0340
 Epoch 100/100
-20/20 [==============================] - 0s 18ms/step - loss: 4.4713 - root_mean_squared_error: 13.9385 - msle: 0.0560 - val_loss: 6.8692 - val_root_mean_squared_error: 17.4515 - val_msle: 0.0566
+20/20 [==============================] - 5s 274ms/step - loss: 3.0558 - root_mean_squared_error: 8.0026 - msle: 0.0230 - val_loss: 5.9513 - val_root_mean_squared_error: 15.4306 - val_msle: 0.0371
 ```
 Losses are relatively low, as is our Mean Squared Logistic Error, on both the training and validation data. Once the model was fitted, we saved the weights and used them to predict the `energy`, `valence`, `tempo`, and `liveness` of our given movie scences.
 

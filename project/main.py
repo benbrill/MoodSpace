@@ -21,16 +21,17 @@ def profile():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
 
+    # display user's name
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
 
+    # get user's top artists and their images
     top_artists = spotify.current_user_top_artists(limit=5, offset=0, time_range='long_term')
-    # TODO: if someone has very few top things, going up to 6 doesn't work.
-    # in the template, we should probably have a for loop and make this variable length somehow
+
     artist_imgs = [top_artists['items'][i]['images'][0]['url'] for i in range(3)]
     top_artists = [top_artists['items'][i]['name'] for i in range(3)]
 
-
+    # get user's top tracks and their album covers
     top_tracks = spotify.current_user_top_tracks(limit=6, offset=0, time_range='long_term')
     top_track_names = [top_tracks['items'][i]['name'] for i in range(6)]
     top_track_artist_names = [top_tracks['items'][i]['artists'][0]['name'] for i in range(6)]
@@ -94,9 +95,10 @@ def choose_movie():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
 
+    # open json to see which movies are avaliable
     with open('project/static/assets/movie_data.json') as f:
         data = json.load(f)
-    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=None)
+    return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=None) # creates drop down list of movies to chose from
 
 @main.route('/choose_movie', methods=["POST"])
 def choose_movie_post():
@@ -108,14 +110,6 @@ def choose_movie_post():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     display_name = spotify.me()["display_name"]
 
-    # playlist_name = f"{display_name}'s Mood Playlist" 
-    
-    # # playlists = spotipy.Spotify.user_playlists(display_name)
-    # playlists = spotify.current_user_playlists()
-    # for playlist in playlists['items']:  # iterate through playlists I follow
-    #     if playlist['name'] == playlist_name:  # filter for newly created playlist
-    #         playlist_id = playlist['id']
-
     # retrieve our metadata around the movie the user chose
     chosen_movie = request.form['movie_scene']
     with open('project/static/assets/movie_data.json') as f:
@@ -126,8 +120,8 @@ def choose_movie_post():
     weights = np.array(df['weights'].values.tolist())
     
     # calculate songs closest in weight to movie weights
-    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1)
-    ix = np.argsort(norms)
+    norms = np.linalg.norm(weights - np.array(data[chosen_movie]['weights']), axis = 1) # calculate eucledian distance
+    ix = np.argsort(norms) # sort in ascending order
     sorted_df = df.iloc[ix]
-    top_3_songs = sorted_df.iloc[0:3]['song_id']
+    top_3_songs = sorted_df.iloc[0:3]['song_id'] # get the three song ID's with lowest distance
     return render_template("choose_movie.html", movies=list(data.keys()), chosen_movie=data[chosen_movie], top_song_ids = top_3_songs)
