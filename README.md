@@ -6,13 +6,14 @@ MoodSpace is a webapp that not only generates a comprehensive take on a user’s
 
 Our app is designed for active Spotify users and movie lovers looking to discover how their music tastes match their favorite movies.
 
-This app can be accessed online or be run locally. 
- -  To access online, visit [this link](https://pic16-spotify.herokuapp.com/) (or https://pic16-spotify.herokuapp.com/). Please note that the app may take a while to load
- -  To run the app locally, follow instructions below.
-
 Log into the app using your Spotify Credentials. Once logged in, explore the home page to view your favorite artists and tracks. If you are playing music in the background, click "Currently Playing" to see the lyrics of your track!
 
 Once you are ready for your movie based song recommendations, click "Soundtrack Generator." From here, you will be able to select from 10 different movie scenes we have selected. Select a movie who's mood you vibe with, and behold three song recommendations that match the mood of that scene. You can even use the embedded Spotify links to the songs to play those selected tracks over the provided movie scene on YouTube!
+
+This app can be accessed online or be run locally. 
+ -  To access online, visit [this link](https://pic16-spotify.herokuapp.com/) (or https://pic16-spotify.herokuapp.com/). Please note that the app may take a while to load
+ -  To run the app locally, in the next section
+
 
 ## Directions for serving locally
 
