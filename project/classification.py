@@ -10,7 +10,9 @@ MAX_TOKENS = 2000
 SEQUENCE_LENGTH = 500
 
 def create_model(max_tokens=None):
-
+    """
+    creates tensorflow model and loads weights to be used in model. This is the same model contained in tfLyricClassification.ipynb
+    """
     lyrics_input = keras.Input(
         shape = (500,), 
         name = "lyrics",
@@ -28,7 +30,7 @@ def create_model(max_tokens=None):
     model = keras.Model(inputs=lyrics_input, outputs=[output])
     model.compile(loss='mae',
               optimizer='adam',)
-    model.load_weights('./checkpoints/my_checkpoint_30')
+    model.load_weights('./checkpoints/my_checkpoint_30') # load weights from previous training
 
     return model
 
@@ -37,16 +39,16 @@ vectorize_layer = TextVectorization(
     output_mode='int',
     output_sequence_length=SEQUENCE_LENGTH) 
 
-def vectorize_moviescript(text):
-    text = tf.expand_dims(text, -1)
-    return vectorize_layer(text)
-
-
-
 def main(df):
-    model = create_model()
+    """
+    inputs a data frame containing spotify songs and their lyrics and outputs predictions
+    of the Spotify Metrics based on the lyrics
+    """
+    # create model
+    model = create_model() 
 
+    # adapt and create vectorization of lyrics
     vectorize_layer.adapt(df["lyrics"].to_numpy())
     X = vectorize_layer(df["lyrics"])
 
-    return model.predict(X)
+    return model.predict(X) # return array of metric predictions
